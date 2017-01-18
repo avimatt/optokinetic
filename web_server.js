@@ -14,6 +14,7 @@ app = express();
 
 
 app.use(express.static(__dirname + '/public'));
+
 server = https.createServer(https_options, app).listen(PORT, HOST);
 console.log('HTTPS Server listening on %s:%s', HOST, PORT);
 
