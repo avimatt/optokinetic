@@ -17,6 +17,7 @@
             }
 
         </style>
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     </HEAD>
     <BODY LANG="en-US" LINK="#0000ff" DIR="LTR">
     <div id="mydiv">
@@ -24,14 +25,14 @@
             Click on a few locations within the screen<br>
             while looking purposefully at the cursor.<br>
             Both clicks and cursor movements<br>
-            make the predictions more accurate. 
+            make the predictions more accurate.
         </h1>
     </div>
     <div class="ReadingDiv">
-        <p class="ReadingContent" id="p1">
+        <p class="ReadingContent article_1" id="p1">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at luctus massa. Vivamus ac lectus tellus. Curabitur est odio, blandit a mauris et, pellentesque rhoncus mi. Proin varius urna sed nisi ullamcorper, in tincidunt nibh dictum. Proin vel ante at lacus lobortis interdum. Donec massa velit, tincidunt at aliquam non, vulputate ac risus. Sed ut luctus nulla, sed cursus ante. Nunc volutpat bibendum nibh, at malesuada felis sodales non. Nunc blandit vulputate commodo. Curabitur eu tempus urna. Pellentesque nec bibendum velit. Etiam rhoncus pretium dolor, vel faucibus nisl fermentum eu. Morbi augue elit, viverra et egestas sit amet, semper nec ante. Ut porta eget sem ut iaculis. Aenean aliquet sem massa, at sodales enim pellentesque at. Duis vitae purus nec ex semper sodales volutpat dignissim nisi.
         </p>
-        <p class="ReadingContent" id="p2">
+        <p class="ReadingContent article_2" id="p2">
             Nulla pharetra maximus nisl id rutrum. Nullam lobortis ante in augue commodo rhoncus sit amet quis mauris. Aliquam dictum magna eget mi tristique, nec rhoncus lacus suscipit. Cras dignissim massa enim, nec imperdiet felis eleifend sed. Sed pellentesque consectetur ipsum vel feugiat. Praesent vitae orci at leo egestas vulputate in sed arcu. Donec eget tellus velit.
         </p>
         <p class="ReadingContent" id="p3">
@@ -59,198 +60,33 @@
             Nam mauris lorem, malesuada posuere purus fermentum, fermentum feugiat turpis. Sed consequat tortor eros, finibus vehicula orci ullamcorper ut. Etiam ultricies ligula lacus, in consectetur nisi molestie id. Fusce vehicula gravida sapien, a interdum lectus tempor sed. Vestibulum euismod eros ac feugiat pharetra. Integer nec pharetra urna. In auctor diam id tempus dictum. Pellentesque metus purus, sollicitudin rutrum venenatis sed, bibendum ut ex. Morbi eleifend nec tellus non laoreet. Curabitur sed massa at magna egestas bibendum. Suspendisse ac elit sit amet nibh scelerisque iaculis. Ut at nisi sodales, mollis nibh vitae, aliquet eros. Donec odio felis, posuere tempus sapien sed, condimentum lacinia nisl. Quisque tempus pulvinar quam ac elementum. Mauris a lacus sollicitudin, volutpat sapien in, pulvinar lacus.
         </p>
     </div>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="WebGazer/build/webgazer.js"></script>
-    <script>
+    <script src="js_file_with_everything.js"></script>
 
-        class EdgeCounter {
-            constructor(up, down, left, right, counterThresh, threshCallback) {
-                this.upCounter = 0;
-                this.downCounter = 0;
-                this.leftCounter = 0;
-                this.rightCounter = 0;
-                this.upThresh = up;
-                this.downThresh = down;
-                this.leftThresh = left;
-                this.rightThresh = right;
-                this.counterThresh = counterThresh;
-                this.threshCallback = threshCallback;
-            }
-            incrementCount(direction, data) {
-                var directions = ["up", "down", "left", "right"];
-                var index = directions.indexOf(direction);
-                if (index >= 0) {
-                    // Valid direction
-                    var counterName = direction + "Counter";
-                    this[counterName]++;
-                    // Now check if we hit threshold
-                    if (this[counterName] >= this.counterThresh) {
-                        // Threshold hit, calling callback function
-                        console.log("Reached threshold for " + direction);
-                        this.threshCallback(direction);
-                    }
-                    else {
-                        console.log("Did NOT reach threshold for " + direction);
-                    }
-                }                
-            }
-            decrementCount(direction) {
-                var directions = ["up", "down", "left", "right"];
-                var index = directions.indexOf(direction);
-                if (index >= 0) {
-                    // Valid direction
-                    var counterName = direction + "Counter";
-                    if (this[counterName] > 0) {
-                        // Only decrement positive counts
-                        this[counterName]--;
-                    }
-                }
-            }
-            modifyCounts(data) {
-                if (data == null) {
-                    return;
-                }
-                var x = data.x;
-                var y = data.y;
-                if (this.upThresh > y) {
-                    // Eye is in the upper edge
-                    this.incrementCount("up");
-                    this.decrementCount("down");
-                    this.decrementCount("left");
-                    this.decrementCount("right");
-                }
-                else if (this.downThresh < y) {
-                    // Eye is in the lower edge
-                    this.incrementCount("down");
-                    this.decrementCount("up");
-                    this.decrementCount("left");
-                    this.decrementCount("right");
-                }
-                else if (this.rightThresh < x) {
-                    // Eye is in the right edge
-                    this.incrementCount("right");
-                    this.decrementCount("down");
-                    this.decrementCount("left");
-                    this.decrementCount("up");
-                }
-                else if (this.leftThresh > y) {
-                    // Eye is in the left edge
-                    this.incrementCount("left");
-                    this.decrementCount("down");
-                    this.decrementCount("right");
-                    this.decrementCount("up");                   
-                }
-                else {
-                    // Eye is not on an edge
-                    this.decrementCount("left");
-                    this.decrementCount("down");
-                    this.decrementCount("right");
-                    this.decrementCount("up"); 
-                }
-                console.log(this);
-            }
-        }
-
-        var scrollFunction = function(direction) {
-            var scrollAmount = 10;
-            var directions = ["up", "down", "left", "right"];
-            var index = directions.indexOf(direction);
-            if (index >= 0) {
-                // Valid direction
-                if (direction == "up") {
-                    window.scrollBy(0, -scrollAmount);
-                }
-                else if (direction == "down") {
-                    window.scrollBy(0, scrollAmount);
-                }
-                else if (direction == "left") {
-                    window.scrollBy(-scrollAmount, 0);
-                }
-                else if (direction == "right") {
-                    window.scrollBy(scrollAmount, 0);
-                }
-                else {
-                    console.log("Invalid direction given: " + direction);
-                }
-            }            
-        }
-
-        var edgeThresh = 50;
-        var edgeCounter = new EdgeCounter(edgeThresh, window.innerHeight - edgeThresh, edgeThresh, window.innerWidth - edgeThresh, 50, scrollFunction);
-
-
-        window.onload = function() {
-        webgazer.setRegression('weightedRidge') /* currently must set regression and tracker */
-            .setTracker('clmtrackr')
-            .setGazeListener(function(data, clock) {
-                edgeCounter.modifyCounts(data);
-                //var reg = webgazer.getRegression();
-                //console.log(reg);
-                //console.log(data); /* data is an object containing an x and y key which are the x and y prediction coordinates (no bounds limiting) */
-                console.log(clock); /* elapsed time in milliseconds since webgazer.begin() was called */
-                var pred = webgazer.getCurrentPrediction();
-                console.log(pred);
-            })
-            .begin()
-            .showPredictionPoints(true); /* shows a square every 100 milliseconds where current prediction is */
-
-        var width = 320;
-        var height = 240;
-        var topDist = '0px';
-        var leftDist = '0px';
-        
-        var setup = function() {
-            var video = document.getElementById('webgazerVideoFeed');
-            video.style.display = 'block';
-            video.style.position = 'absolute';
-            video.style.top = topDist;
-            video.style.left = leftDist;
-            video.width = width;
-            video.height = height;
-            video.style.margin = '0px';
-
-            webgazer.params.imgWidth = width;
-            webgazer.params.imgHeight = height;
-
-            var overlay = document.createElement('canvas');
-            overlay.id = 'overlay';
-            overlay.style.position = 'absolute';
-            overlay.width = width;
-            overlay.height = height;
-            overlay.style.top = topDist;
-            overlay.style.left = leftDist;
-            overlay.style.margin = '0px';
-
-            document.body.appendChild(overlay);
-
-            var cl = webgazer.getTracker().clm;
-
-            function drawLoop() {
-                requestAnimFrame(drawLoop);
-                overlay.getContext('2d').clearRect(0,0,width,height);
-                if (cl.getCurrentPosition()) {
-                    cl.draw(overlay);
-                }
-            }
-            drawLoop();
-        };
-
-            function checkIfReady() {
-                if (webgazer.isReady()) {
-                    setup();
-                } else {
-                    setTimeout(checkIfReady, 100);
-                }
-            }
-            setTimeout(checkIfReady,100);
-        };
-        window.onbeforeunload = function() {
-            webgazer.end(); //Uncomment if you want to save the data even if you reload the page.
-            //window.localStorage.clear(); //Comment out if you want to save data across different sessions 
-        }
-    </script>
     <div id="stop">
         <input type="button" name="Stop" value="Stop" onclick="webgazer.end();">
+    </div>
+
+    <div id="article_1" class="modal fade bs-example-modal-lg article_1" tabindex="1" role="dialog" aria-labelledby="myLargeModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-bodyv">
+                    <p> Article Number 1 </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="article_2" class="modal fade bs-example-modal-lg article_1" tabindex="1" role="dialog" aria-labelledby="myLargeModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-bodyv">
+                    <p> Article Number 2 </p>
+                </div>
+            </div>
+        </div>
     </div>
     </BODY>
 </HTML>
