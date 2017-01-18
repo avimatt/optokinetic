@@ -3,6 +3,20 @@
     <HEAD>
         <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
         <TITLE>Simple Demonstration of how WebGazer.js works</TITLE>
+        <style>
+            #stop {
+                position: fixed;
+                bottom: 0;
+                right: 0;
+            }
+
+            .ReadingDiv {
+                margin-top: 150;
+                margin-left: 400;
+                margin-right: 400;
+            }
+
+        </style>
     </HEAD>
     <BODY LANG="en-US" LINK="#0000ff" DIR="LTR">
     <div id="mydiv">
@@ -13,86 +27,228 @@
             make the predictions more accurate. 
         </h1>
     </div>
+    <div class="ReadingDiv">
+        <p class="ReadingContent" id="p1">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at luctus massa. Vivamus ac lectus tellus. Curabitur est odio, blandit a mauris et, pellentesque rhoncus mi. Proin varius urna sed nisi ullamcorper, in tincidunt nibh dictum. Proin vel ante at lacus lobortis interdum. Donec massa velit, tincidunt at aliquam non, vulputate ac risus. Sed ut luctus nulla, sed cursus ante. Nunc volutpat bibendum nibh, at malesuada felis sodales non. Nunc blandit vulputate commodo. Curabitur eu tempus urna. Pellentesque nec bibendum velit. Etiam rhoncus pretium dolor, vel faucibus nisl fermentum eu. Morbi augue elit, viverra et egestas sit amet, semper nec ante. Ut porta eget sem ut iaculis. Aenean aliquet sem massa, at sodales enim pellentesque at. Duis vitae purus nec ex semper sodales volutpat dignissim nisi.
+        </p>
+        <p class="ReadingContent" id="p2">
+            Nulla pharetra maximus nisl id rutrum. Nullam lobortis ante in augue commodo rhoncus sit amet quis mauris. Aliquam dictum magna eget mi tristique, nec rhoncus lacus suscipit. Cras dignissim massa enim, nec imperdiet felis eleifend sed. Sed pellentesque consectetur ipsum vel feugiat. Praesent vitae orci at leo egestas vulputate in sed arcu. Donec eget tellus velit.
+        </p>
+        <p class="ReadingContent" id="p3">
+            Sed ut nibh turpis. Vestibulum et sodales elit. Curabitur id quam euismod, ultrices lorem eu, pulvinar orci. Morbi auctor quis velit in malesuada. Nullam ante augue, feugiat eget risus vitae, aliquam finibus nunc. Mauris porta finibus sem id interdum. Nulla massa massa, placerat nec mauris vel, suscipit condimentum quam. Sed tristique, quam ac luctus facilisis, arcu turpis pulvinar augue, sit amet mattis nunc nibh sit amet ante. Quisque libero erat, convallis eu mauris et, mattis finibus urna. Vestibulum facilisis, turpis vel ultricies pharetra, enim diam imperdiet elit, vitae convallis sem ipsum et mauris. Fusce fermentum nunc eros, in bibendum orci tincidunt non. Donec ac mi eu nibh tristique ullamcorper sit amet quis mauris. Ut congue nisi ac tortor luctus eleifend quis sed felis. Mauris fringilla diam id tincidunt lacinia. Suspendisse et tellus dolor. Aliquam tincidunt dolor at leo bibendum dapibus.
+        </p>
+        <p class="ReadingContent" id="p4">
+            Cras iaculis consequat turpis a tempus. Praesent commodo maximus justo, ac condimentum ex accumsan eget. Nam tincidunt magna ut nulla porta, nec ultrices justo lacinia. Quisque vitae pretium ex. Nunc molestie enim sem, vitae rhoncus lorem blandit id. Ut sem erat, convallis nec lectus a, ullamcorper faucibus odio. Praesent massa orci, scelerisque nec ultrices vel, aliquet non risus. Quisque lobortis venenatis neque eget aliquam. Nam porttitor, tellus non placerat placerat, nibh justo pharetra mi, id ullamcorper nunc lacus a turpis. Nam pellentesque lectus at viverra hendrerit. Nullam magna nibh, egestas ut mauris vitae, tempus pharetra velit. Nunc turpis metus, ultricies quis sagittis et, suscipit vitae risus. Curabitur quis velit nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce tempus, ante at congue sollicitudin, lacus felis facilisis nisi, non blandit dolor dolor eget tortor.
+        </p>
+        <p class="ReadingContent" id="p5">
+            Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc pharetra ante massa, non malesuada est porta et. Fusce non nibh ipsum. Phasellus nec urna iaculis, dapibus leo a, laoreet enim. Fusce tempor quis libero in pellentesque. Sed sodales urna sed ipsum tincidunt, at commodo nisl consectetur. Nam iaculis eu eros nec imperdiet. Nam auctor neque congue condimentum pellentesque. Integer eu quam ultrices, ornare mi vel, fermentum sem. Praesent sed ante ipsum. Duis vel ligula ut sem sagittis tempus. Curabitur tempor commodo lectus, in tempor urna feugiat quis. Sed non erat vitae eros volutpat auctor. Aliquam fermentum nibh eget vestibulum malesuada. Aliquam nec efficitur velit, eu dictum quam. Curabitur tristique vel nunc a porta.
+        </p>
+        <p class="ReadingContent" id="p6">
+            Nulla sit amet ornare sem, et ultrices nisl. Nam molestie porttitor lacus elementum sagittis. Donec quis accumsan ex, et vestibulum justo. Ut et sapien tellus. Aenean lacus ex, ultricies id nulla quis, viverra rhoncus arcu. Proin molestie metus id lorem pulvinar, et pulvinar mi viverra. Aliquam erat volutpat. Cras convallis fermentum orci, sit amet fringilla enim. Nulla bibendum, magna ut sagittis feugiat, nisi massa interdum leo, sit amet tempus arcu nisi at libero. Nam vehicula erat risus, non fermentum velit efficitur a. Sed finibus nibh eget finibus commodo. Quisque quam neque, fringilla vitae ante id, posuere iaculis mi. Quisque maximus purus mi, a hendrerit diam volutpat convallis. Donec vulputate condimentum velit a semper. Nullam congue, mi eu convallis mollis, elit orci molestie leo, eget pretium augue eros ac augue.
+        </p>
+        <p class="ReadingContent" id="p7">
+            Pellentesque sagittis lorem purus. Vestibulum molestie mattis turpis, vel dapibus nisi consectetur at. Aliquam lacinia dolor ut eros gravida elementum. Duis hendrerit nulla tempus magna vulputate, a maximus quam pellentesque. In et mi sapien. Donec semper venenatis mi, nec viverra risus accumsan quis. Pellentesque at fringilla enim. Aliquam convallis bibendum facilisis. Sed nisl lacus, dignissim in nibh quis, blandit pharetra odio. Nunc consequat massa nulla, nec interdum nisl maximus sit amet. Vestibulum ornare, eros ultricies maximus fermentum, orci libero blandit nulla, in eleifend nisl nisi sed sapien. Quisque molestie nibh vel ante vestibulum fermentum. Pellentesque mi dui, lobortis eget sollicitudin id, vestibulum quis elit. Phasellus elementum mauris vel lacus aliquam, ut vestibulum sem pharetra.
+        </p>
+        <p class="ReadingContent" id="p8">
+            Curabitur et quam eget mauris volutpat congue at id nibh. Etiam gravida facilisis mi sit amet suscipit. Nullam sed ante pretium, hendrerit lectus non, elementum nisl. Duis varius nibh mauris, nec volutpat diam facilisis sit amet. Quisque congue justo quis gravida semper. Maecenas tristique nec arcu ac vulputate. Nullam pharetra quis lorem a mattis. In hac habitasse platea dictumst. Curabitur nec augue ut enim vulputate aliquet. Fusce eu nunc nisi. Maecenas accumsan consequat fringilla. Cras nec leo nulla. Curabitur pellentesque turpis turpis, sed porta eros maximus et. Curabitur sit amet est vitae enim ornare molestie ac sit amet augue. Proin ullamcorper arcu non nibh vestibulum luctus. Cras non lacinia turpis.
+        </p>
+        <p class="ReadingContent" id="p9">
+            Duis malesuada lorem libero, in sagittis eros dapibus eget. Cras quis eros fermentum, molestie metus vel, sollicitudin nisi. Integer hendrerit purus quis pharetra pharetra. Maecenas sit amet neque eu augue consequat finibus quis id mauris. Donec non consequat quam. Vivamus ultrices libero sed nunc aliquam gravida. Proin eget efficitur sem, et placerat magna. Nulla facilisi. Phasellus vehicula, arcu tincidunt vehicula viverra, tortor felis commodo risus, ut hendrerit dui diam quis sem. Sed a dolor ultrices, aliquet enim a, ullamcorper nunc.
+        </p>
+        <p class="ReadingContent" id="p10">
+            Nam mauris lorem, malesuada posuere purus fermentum, fermentum feugiat turpis. Sed consequat tortor eros, finibus vehicula orci ullamcorper ut. Etiam ultricies ligula lacus, in consectetur nisi molestie id. Fusce vehicula gravida sapien, a interdum lectus tempor sed. Vestibulum euismod eros ac feugiat pharetra. Integer nec pharetra urna. In auctor diam id tempus dictum. Pellentesque metus purus, sollicitudin rutrum venenatis sed, bibendum ut ex. Morbi eleifend nec tellus non laoreet. Curabitur sed massa at magna egestas bibendum. Suspendisse ac elit sit amet nibh scelerisque iaculis. Ut at nisi sodales, mollis nibh vitae, aliquet eros. Donec odio felis, posuere tempus sapien sed, condimentum lacinia nisl. Quisque tempus pulvinar quam ac elementum. Mauris a lacus sollicitudin, volutpat sapien in, pulvinar lacus.
+        </p>
+    </div>
 
+    <script src="WebGazer/build/webgazer.js"></script>
+    <script>
 
-        <script src="WebGazer/build/webgazer.js"></script>
-        <script>
-window.onload = function() {
-    webgazer.setRegression('ridge') /* currently must set regression and tracker */
-        .setTracker('clmtrackr')
-        .setGazeListener(function(data, clock) {
-            var reg = webgazer.getRegression();
-            console.log(reg);
-            //console.log(data); /* data is an object containing an x and y key which are the x and y prediction coordinates (no bounds limiting) */
-            console.log(clock); /* elapsed time in milliseconds since webgazer.begin() was called */
-        })
-        .begin()
-        .showPredictionPoints(true); /* shows a square every 100 milliseconds where current prediction is */
-
-    var width = 320;
-    var height = 240;
-    var topDist = '0px';
-    var leftDist = '0px';
-    
-    var setup = function() {
-        var video = document.getElementById('webgazerVideoFeed');
-        video.style.display = 'block';
-        video.style.position = 'absolute';
-        video.style.top = topDist;
-        video.style.left = leftDist;
-        video.width = width;
-        video.height = height;
-        video.style.margin = '0px';
-
-        webgazer.params.imgWidth = width;
-        webgazer.params.imgHeight = height;
-
-        var overlay = document.createElement('canvas');
-        overlay.id = 'overlay';
-        overlay.style.position = 'absolute';
-        overlay.width = width;
-        overlay.height = height;
-        overlay.style.top = topDist;
-        overlay.style.left = leftDist;
-        overlay.style.margin = '0px';
-
-        document.body.appendChild(overlay);
-
-        var cl = webgazer.getTracker().clm;
-
-        function drawLoop() {
-            requestAnimFrame(drawLoop);
-            overlay.getContext('2d').clearRect(0,0,width,height);
-            if (cl.getCurrentPosition()) {
-                cl.draw(overlay);
+        class EdgeCounter {
+            constructor(up, down, left, right, counterThresh, threshCallback) {
+                this.upCounter = 0;
+                this.downCounter = 0;
+                this.leftCounter = 0;
+                this.rightCounter = 0;
+                this.upThresh = up;
+                this.downThresh = down;
+                this.leftThresh = left;
+                this.rightThresh = right;
+                this.counterThresh = counterThresh;
+                this.threshCallback = threshCallback;
+            }
+            incrementCount(direction, data) {
+                var directions = ["up", "down", "left", "right"];
+                var index = directions.indexOf(direction);
+                if (index >= 0) {
+                    // Valid direction
+                    var counterName = direction + "Counter";
+                    this[counterName]++;
+                    // Now check if we hit threshold
+                    if (this[counterName] >= this.counterThresh) {
+                        // Threshold hit, calling callback function
+                        console.log("Reached threshold for " + direction);
+                        this.threshCallback(direction);
+                    }
+                    else {
+                        console.log("Did NOT reach threshold for " + direction);
+                    }
+                }                
+            }
+            decrementCount(direction) {
+                var directions = ["up", "down", "left", "right"];
+                var index = directions.indexOf(direction);
+                if (index >= 0) {
+                    // Valid direction
+                    var counterName = direction + "Counter";
+                    if (this[counterName] > 0) {
+                        // Only decrement positive counts
+                        this[counterName]--;
+                    }
+                }
+            }
+            modifyCounts(data) {
+                if (data == null) {
+                    return;
+                }
+                var x = data.x;
+                var y = data.y;
+                if (this.upThresh > y) {
+                    // Eye is in the upper edge
+                    this.incrementCount("up");
+                    this.decrementCount("down");
+                    this.decrementCount("left");
+                    this.decrementCount("right");
+                }
+                else if (this.downThresh < y) {
+                    // Eye is in the lower edge
+                    this.incrementCount("down");
+                    this.decrementCount("up");
+                    this.decrementCount("left");
+                    this.decrementCount("right");
+                }
+                else if (this.rightThresh < x) {
+                    // Eye is in the right edge
+                    this.incrementCount("right");
+                    this.decrementCount("down");
+                    this.decrementCount("left");
+                    this.decrementCount("up");
+                }
+                else if (this.leftThresh > y) {
+                    // Eye is in the left edge
+                    this.incrementCount("left");
+                    this.decrementCount("down");
+                    this.decrementCount("right");
+                    this.decrementCount("up");                   
+                }
+                else {
+                    // Eye is not on an edge
+                    this.decrementCount("left");
+                    this.decrementCount("down");
+                    this.decrementCount("right");
+                    this.decrementCount("up"); 
+                }
+                console.log(this);
             }
         }
-        drawLoop();
-    };
 
-    function checkIfReady() {
-        if (webgazer.isReady()) {
-            setup();
-        } else {
-            setTimeout(checkIfReady, 100);
+        var scrollFunction = function(direction) {
+            var scrollAmount = 10;
+            var directions = ["up", "down", "left", "right"];
+            var index = directions.indexOf(direction);
+            if (index >= 0) {
+                // Valid direction
+                if (direction == "up") {
+                    window.scrollBy(0, -scrollAmount);
+                }
+                else if (direction == "down") {
+                    window.scrollBy(0, scrollAmount);
+                }
+                else if (direction == "left") {
+                    window.scrollBy(-scrollAmount, 0);
+                }
+                else if (direction == "right") {
+                    window.scrollBy(scrollAmount, 0);
+                }
+                else {
+                    console.log("Invalid direction given: " + direction);
+                }
+            }            
         }
-    }
-    setTimeout(checkIfReady,100);
-};
+
+        var edgeThresh = 50;
+        var edgeCounter = new EdgeCounter(edgeThresh, window.innerHeight - edgeThresh, edgeThresh, window.innerWidth - edgeThresh, 50, scrollFunction);
 
 
-window.onbeforeunload = function() {
-    //webgazer.end(); //Uncomment if you want to save the data even if you reload the page.
-    window.localStorage.clear(); //Comment out if you want to save data across different sessions 
-}
-        </script>
-    <style>
-        #stop {
-            position: fixed;
-            bottom: 0;
-            right: 0;
+        window.onload = function() {
+        webgazer.setRegression('weightedRidge') /* currently must set regression and tracker */
+            .setTracker('clmtrackr')
+            .setGazeListener(function(data, clock) {
+                edgeCounter.modifyCounts(data);
+                //var reg = webgazer.getRegression();
+                //console.log(reg);
+                //console.log(data); /* data is an object containing an x and y key which are the x and y prediction coordinates (no bounds limiting) */
+                console.log(clock); /* elapsed time in milliseconds since webgazer.begin() was called */
+                var pred = webgazer.getCurrentPrediction();
+                console.log(pred);
+            })
+            .begin()
+            .showPredictionPoints(true); /* shows a square every 100 milliseconds where current prediction is */
+
+        var width = 320;
+        var height = 240;
+        var topDist = '0px';
+        var leftDist = '0px';
+        
+        var setup = function() {
+            var video = document.getElementById('webgazerVideoFeed');
+            video.style.display = 'block';
+            video.style.position = 'absolute';
+            video.style.top = topDist;
+            video.style.left = leftDist;
+            video.width = width;
+            video.height = height;
+            video.style.margin = '0px';
+
+            webgazer.params.imgWidth = width;
+            webgazer.params.imgHeight = height;
+
+            var overlay = document.createElement('canvas');
+            overlay.id = 'overlay';
+            overlay.style.position = 'absolute';
+            overlay.width = width;
+            overlay.height = height;
+            overlay.style.top = topDist;
+            overlay.style.left = leftDist;
+            overlay.style.margin = '0px';
+
+            document.body.appendChild(overlay);
+
+            var cl = webgazer.getTracker().clm;
+
+            function drawLoop() {
+                requestAnimFrame(drawLoop);
+                overlay.getContext('2d').clearRect(0,0,width,height);
+                if (cl.getCurrentPosition()) {
+                    cl.draw(overlay);
+                }
+            }
+            drawLoop();
+        };
+
+            function checkIfReady() {
+                if (webgazer.isReady()) {
+                    setup();
+                } else {
+                    setTimeout(checkIfReady, 100);
+                }
+            }
+            setTimeout(checkIfReady,100);
+        };
+        window.onbeforeunload = function() {
+            webgazer.end(); //Uncomment if you want to save the data even if you reload the page.
+            //window.localStorage.clear(); //Comment out if you want to save data across different sessions 
         }
-    </style>
+    </script>
     <div id="stop">
         <input type="button" name="Stop" value="Stop" onclick="webgazer.end();">
     </div>
