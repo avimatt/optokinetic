@@ -19,7 +19,7 @@
         <script>
 window.onload = function() {
     webgazer.setRegression('ridge') /* currently must set regression and tracker */
-        .setTracker('js_objectdetect')
+        .setTracker('clmtrackr')
         .setGazeListener(function(data, clock) {
             var reg = webgazer.getRegression();
             console.log(reg);
