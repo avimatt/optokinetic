@@ -22,11 +22,11 @@ class EdgeCounter {
             // Now check if we hit threshold
             if (this[counterName] >= this.counterThresh) {
                 // Threshold hit, calling callback function
-                console.log("Reached threshold for " + direction);
+                // console.log("Reached threshold for " + direction);
                 this.threshCallback(direction);
             }
             else {
-                console.log("Did NOT reach threshold for " + direction);
+                // console.log("Did NOT reach threshold for " + direction);
             }
         }
     }
@@ -83,7 +83,7 @@ class EdgeCounter {
             this.decrementCount("right");
             this.decrementCount("up");
         }
-        console.log(this);
+        // console.log(this);
     }
 }
 
@@ -106,20 +106,24 @@ var scrollFunction = function(direction) {
             window.scrollBy(scrollAmount, 0);
         }
         else {
-            console.log("Invalid direction given: " + direction);
+            // console.log("Invalid direction given: " + direction);
         }
     }
 }
 
 
 class ArticleCounter {
-    constructor(article_list, counterThresh, threshCallback) {
+    constructor(article_list, counterThresh, threshCallback, hideCallback) {
         this.article_dict = {};
         for(var i = 0; i < article_list.length; ++i) {
             this.article_dict[article_list[i]] = 0;
         }
+        this.modalFlag = false;
+        this.modalCounter = 0;
+        this.modalName = "";
         this.counterThresh = counterThresh;
         this.threshCallback = threshCallback;
+        this.hideCallback = hideCallback;
     }
     incrementCount(article_name) {
         if(Object.keys(this.article_dict).includes(article_name)) {
@@ -130,12 +134,14 @@ class ArticleCounter {
             // Now check if we hit threshold
             if (this.article_dict[article_name] >= this.counterThresh) {
                 // Threshold hit, calling callback function
-                console.log("Reached threshold for " + article_name);
+                // console.log("Reached threshold for " + article_name);
                 this.article_dict[article_name] = 0;
+                this.modalFlag = true;
+                this.modalName = article_name;
                 this.threshCallback(article_name);
             }
             else {
-                console.log("Did NOT reach threshold for " + article_name);
+                // console.log("Did NOT reach threshold for " + article_name);
             }
         }
     }
@@ -159,31 +165,46 @@ class ArticleCounter {
         var el = document.elementFromPoint(data.x, data.y);
         if(el != null) {
             var classes = el.classList;
-            for (var i = 0; i < classes.length; i++) {
-                if(classes[i].startsWith("article")) {
-                    for (var key in this.article_dict) {
-                        if (key == classes[i]) {
-                            this.incrementCount(key);
-                        } else {
-                            this.decrementCount(key);
+            if(this.modalFlag && !el.classList.contains("our_modal")) {
+                this.modalCounter++;
+                console.log(this.modalCounter);
+                if(this.modalCounter > this.counterThresh/2) {
+                    this.modalCounter = 0;
+                    this.modalFlag = false;
+                    this.hideCallback(this.modalName);
+                }
+            } else {
+                for (var i = 0; i < classes.length; i++) {
+                    if(classes[i].startsWith("article")) {
+                        for (var key in this.article_dict) {
+                            if (key == classes[i]) {
+                                this.incrementCount(key);
+                            } else {
+                                this.decrementCount(key);
+                            }
                         }
+                        break;
                     }
-                    break;
                 }
             }
         }
 
-        console.log(this.article_dict);
+        // console.log(this.article_dict);
     }
 }
 
 var modalFunction = function(article_name) {
-    var id = "#"+article_name;
+    var id = "#" + article_name;
     $(id).modal("show");
 }
 
+var hideModal = function(article_name) {
+    var id = "#" + article_name;
+    $(id).modal("hide");
+}
+
 var counterThresh = 110;
-var articleCounter = new ArticleCounter(['article_1', 'article_2'], counterThresh, modalFunction)
+var articleCounter = new ArticleCounter(['article_1', 'article_2'], counterThresh, modalFunction, hideModal)
 
 
 
@@ -202,9 +223,9 @@ webgazer.setRegression('weightedRidge') /* currently must set regression and tra
         //var reg = webgazer.getRegression();
         //console.log(reg);
         //console.log(data); /* data is an object containing an x and y key which are the x and y prediction coordinates (no bounds limiting) */
-        console.log(clock); /* elapsed time in milliseconds since webgazer.begin() was called */
+        //console.log(clock); /* elapsed time in milliseconds since webgazer.begin() was called */
         var pred = webgazer.getCurrentPrediction();
-        console.log(pred);
+        //console.log(pred);
     })
     .begin()
     .showPredictionPoints(true); /* shows a square every 100 milliseconds where current prediction is */
