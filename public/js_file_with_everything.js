@@ -1,4 +1,3 @@
-
 class EdgeCounter {
     constructor(up, down, left, right, counterThresh, threshCallback) {
         this.upCounter = 0;
@@ -203,29 +202,47 @@ var hideModal = function(article_name) {
     $(id).modal("hide");
 }
 
+var weightedAverage = function(newPred, oldPred) {
+    var oldPredWeightX = Math.sqrt(Math.abs(oldPred.x - newPred.x) / window.innerWidth);
+    var newPredWeightX = 1 - oldPredWeightX;
+    var oldPredWeightY = Math.sqrt(Math.abs(oldPred.y - newPred.y) / window.innerHeight);
+    var newPredWeightY = 1 - oldPredWeightY;
+    console.log("oldPred: ");
+    console.log(oldPred);
+    console.log("oldPred weights: (" + oldPredWeightX + ", " + oldPredWeightY + ")");
+    console.log("newPred:");
+    console.log(newPred);
+    console.log("newPred weights: (" + newPredWeightX + ", " + newPredWeightY + ")");
+    newPred.x = Math.round((newPredWeightX * newPred.x) + (oldPredWeightX * oldPred.x));
+    newPred.y = Math.round((newPredWeightY * newPred.y) + (oldPredWeightY * oldPred.y));
+}
+
 var counterThresh = 110;
-var articleCounter = new ArticleCounter(['article_1', 'article_2'], counterThresh, modalFunction, hideModal)
-
-
-
-var edgeThresh = 50;
-var edgeCounter = new EdgeCounter(edgeThresh, window.innerHeight - edgeThresh, edgeThresh, window.innerWidth - edgeThresh, 50, scrollFunction);
-
-
+var articleCounter = new ArticleCounter(['article_1', 'article_2'], counterThresh, modalFunction, hideModal);
+var lastData = null;
+var edgeDistanceThresh = 60;
+var edgeCounterThresh = 15;
+var edgeCounter = new EdgeCounter(edgeDistanceThresh, 
+    window.innerHeight - edgeDistanceThresh, edgeDistanceThresh,
+    window.innerWidth - edgeDistanceThresh, edgeCounterThresh, scrollFunction);
 
 
 window.onload = function() {
 webgazer.setRegression('weightedRidge') /* currently must set regression and tracker */
     .setTracker('clmtrackr')
     .setGazeListener(function(data, clock) {
-        edgeCounter.modifyCounts(data);
-        articleCounter.modifyCounts(data);
-        //var reg = webgazer.getRegression();
-        //console.log(reg);
-        //console.log(data); /* data is an object containing an x and y key which are the x and y prediction coordinates (no bounds limiting) */
-        //console.log(clock); /* elapsed time in milliseconds since webgazer.begin() was called */
-        var pred = webgazer.getCurrentPrediction();
-        //console.log(pred);
+        if (data != null) {
+            if (lastData != null) {
+                webgazer.util.bound(data);
+                weightedAverage(data, lastData);
+            }
+            else {
+                webgazer.util.bound(data);
+            }
+            edgeCounter.modifyCounts(data);
+            articleCounter.modifyCounts(data);
+            lastData = data;
+        }
     })
     .begin()
     .showPredictionPoints(true); /* shows a square every 100 milliseconds where current prediction is */
@@ -260,7 +277,7 @@ var setup = function() {
 
     document.body.appendChild(overlay);
     */
-    var cl = webgazer.getTracker().clm;
+    //var cl = webgazer.getTracker().clm;
     /*
     function drawLoop() {
         requestAnimFrame(drawLoop);
