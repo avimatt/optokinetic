@@ -1,92 +1,1274 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-    <HEAD>
-        <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
-        <TITLE>Simple Demonstration of how WebGazer.js works</TITLE>
-        <style>
-            #stop {
-                position: fixed;
-                bottom: 0;
-                right: 0;
+<html class=" fonts-loaded"><head>
+    <title>The Verge</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style id="article-content-optokinetic">
+        @media print {
+            .original-url {
+                display: none;
             }
+        }
 
-            .ReadingDiv {
-                margin-top: 150;
-                margin-left: 400;
-                margin-right: 400;
+        h1.title {
+            font-weight: normal;
+            font-size: 1.5em;
+            line-height: 1.25em;
+            color: rgb(75, 75, 75);
+            text-align: start;
+            -webkit-hyphens: manual;
+        }
+
+        blockquote {
+            color: rgba(0, 0, 0, 0.5);
+            margin: 1em 30px 1em 30px;
+            font-weight: lighter;
+        }
+
+        .page a {
+            color: rgb(65, 110, 210);
+        }
+
+        .page a:visited {
+            color: rgb(65, 110, 210);
+        }
+
+        #article img {
+            border: 1px inset rgba(0, 0, 0, 0.1);
+        }
+
+        #article img.reader-image-tiny {
+            border: none;
+        }
+
+        #article .leading-image, #article figure, #article .auxiliary {
+            font-family: HelveticaNeue, Helvetica, sans-serif;
+            color: rgba(0, 0, 0, 0.55);
+        }
+
+        .page {
+            font: 20px Georgia, serif;
+            line-height: 160%;
+        }
+
+        hr {
+            background: rgb(206, 206, 206);
+            height: 1px;
+            border: 0;
+        }
+
+        @media screen and (max-device-width: 480px) {
+            .page {
+                text-align: start;
             }
+        }
+    </style>
+    <style id="reader-ui-optokinetic">
+    @media screen {
+        /* Rules responsible for the Reader page expanding to fill the window. */
+        html {
+            height: 100%;
+        }
 
-        </style>
-        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    </HEAD>
-    <BODY LANG="en-US" LINK="#0000ff" DIR="LTR">
-    <div id="mydiv">
-        <h1 style="color:#C0C0C0" align="right">
-            Click on a few locations within the screen<br>
-            while looking purposefully at the cursor.<br>
-            Both clicks and cursor movements<br>
-            make the predictions more accurate.
-        </h1>
-    </div>
-    <div class="ReadingDiv">
-        <p class="ReadingContent article_1" id="p1">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at luctus massa. Vivamus ac lectus tellus. Curabitur est odio, blandit a mauris et, pellentesque rhoncus mi. Proin varius urna sed nisi ullamcorper, in tincidunt nibh dictum. Proin vel ante at lacus lobortis interdum. Donec massa velit, tincidunt at aliquam non, vulputate ac risus. Sed ut luctus nulla, sed cursus ante. Nunc volutpat bibendum nibh, at malesuada felis sodales non. Nunc blandit vulputate commodo. Curabitur eu tempus urna. Pellentesque nec bibendum velit. Etiam rhoncus pretium dolor, vel faucibus nisl fermentum eu. Morbi augue elit, viverra et egestas sit amet, semper nec ante. Ut porta eget sem ut iaculis. Aenean aliquet sem massa, at sodales enim pellentesque at. Duis vitae purus nec ex semper sodales volutpat dignissim nisi.
-        </p>
-        <p class="ReadingContent article_2" id="p2">
-            Nulla pharetra maximus nisl id rutrum. Nullam lobortis ante in augue commodo rhoncus sit amet quis mauris. Aliquam dictum magna eget mi tristique, nec rhoncus lacus suscipit. Cras dignissim massa enim, nec imperdiet felis eleifend sed. Sed pellentesque consectetur ipsum vel feugiat. Praesent vitae orci at leo egestas vulputate in sed arcu. Donec eget tellus velit.
-        </p>
-        <p class="ReadingContent" id="p3">
-            Sed ut nibh turpis. Vestibulum et sodales elit. Curabitur id quam euismod, ultrices lorem eu, pulvinar orci. Morbi auctor quis velit in malesuada. Nullam ante augue, feugiat eget risus vitae, aliquam finibus nunc. Mauris porta finibus sem id interdum. Nulla massa massa, placerat nec mauris vel, suscipit condimentum quam. Sed tristique, quam ac luctus facilisis, arcu turpis pulvinar augue, sit amet mattis nunc nibh sit amet ante. Quisque libero erat, convallis eu mauris et, mattis finibus urna. Vestibulum facilisis, turpis vel ultricies pharetra, enim diam imperdiet elit, vitae convallis sem ipsum et mauris. Fusce fermentum nunc eros, in bibendum orci tincidunt non. Donec ac mi eu nibh tristique ullamcorper sit amet quis mauris. Ut congue nisi ac tortor luctus eleifend quis sed felis. Mauris fringilla diam id tincidunt lacinia. Suspendisse et tellus dolor. Aliquam tincidunt dolor at leo bibendum dapibus.
-        </p>
-        <p class="ReadingContent" id="p4">
-            Cras iaculis consequat turpis a tempus. Praesent commodo maximus justo, ac condimentum ex accumsan eget. Nam tincidunt magna ut nulla porta, nec ultrices justo lacinia. Quisque vitae pretium ex. Nunc molestie enim sem, vitae rhoncus lorem blandit id. Ut sem erat, convallis nec lectus a, ullamcorper faucibus odio. Praesent massa orci, scelerisque nec ultrices vel, aliquet non risus. Quisque lobortis venenatis neque eget aliquam. Nam porttitor, tellus non placerat placerat, nibh justo pharetra mi, id ullamcorper nunc lacus a turpis. Nam pellentesque lectus at viverra hendrerit. Nullam magna nibh, egestas ut mauris vitae, tempus pharetra velit. Nunc turpis metus, ultricies quis sagittis et, suscipit vitae risus. Curabitur quis velit nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce tempus, ante at congue sollicitudin, lacus felis facilisis nisi, non blandit dolor dolor eget tortor.
-        </p>
-        <p class="ReadingContent" id="p5">
-            Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc pharetra ante massa, non malesuada est porta et. Fusce non nibh ipsum. Phasellus nec urna iaculis, dapibus leo a, laoreet enim. Fusce tempor quis libero in pellentesque. Sed sodales urna sed ipsum tincidunt, at commodo nisl consectetur. Nam iaculis eu eros nec imperdiet. Nam auctor neque congue condimentum pellentesque. Integer eu quam ultrices, ornare mi vel, fermentum sem. Praesent sed ante ipsum. Duis vel ligula ut sem sagittis tempus. Curabitur tempor commodo lectus, in tempor urna feugiat quis. Sed non erat vitae eros volutpat auctor. Aliquam fermentum nibh eget vestibulum malesuada. Aliquam nec efficitur velit, eu dictum quam. Curabitur tristique vel nunc a porta.
-        </p>
-        <p class="ReadingContent" id="p6">
-            Nulla sit amet ornare sem, et ultrices nisl. Nam molestie porttitor lacus elementum sagittis. Donec quis accumsan ex, et vestibulum justo. Ut et sapien tellus. Aenean lacus ex, ultricies id nulla quis, viverra rhoncus arcu. Proin molestie metus id lorem pulvinar, et pulvinar mi viverra. Aliquam erat volutpat. Cras convallis fermentum orci, sit amet fringilla enim. Nulla bibendum, magna ut sagittis feugiat, nisi massa interdum leo, sit amet tempus arcu nisi at libero. Nam vehicula erat risus, non fermentum velit efficitur a. Sed finibus nibh eget finibus commodo. Quisque quam neque, fringilla vitae ante id, posuere iaculis mi. Quisque maximus purus mi, a hendrerit diam volutpat convallis. Donec vulputate condimentum velit a semper. Nullam congue, mi eu convallis mollis, elit orci molestie leo, eget pretium augue eros ac augue.
-        </p>
-        <p class="ReadingContent" id="p7">
-            Pellentesque sagittis lorem purus. Vestibulum molestie mattis turpis, vel dapibus nisi consectetur at. Aliquam lacinia dolor ut eros gravida elementum. Duis hendrerit nulla tempus magna vulputate, a maximus quam pellentesque. In et mi sapien. Donec semper venenatis mi, nec viverra risus accumsan quis. Pellentesque at fringilla enim. Aliquam convallis bibendum facilisis. Sed nisl lacus, dignissim in nibh quis, blandit pharetra odio. Nunc consequat massa nulla, nec interdum nisl maximus sit amet. Vestibulum ornare, eros ultricies maximus fermentum, orci libero blandit nulla, in eleifend nisl nisi sed sapien. Quisque molestie nibh vel ante vestibulum fermentum. Pellentesque mi dui, lobortis eget sollicitudin id, vestibulum quis elit. Phasellus elementum mauris vel lacus aliquam, ut vestibulum sem pharetra.
-        </p>
-        <p class="ReadingContent" id="p8">
-            Curabitur et quam eget mauris volutpat congue at id nibh. Etiam gravida facilisis mi sit amet suscipit. Nullam sed ante pretium, hendrerit lectus non, elementum nisl. Duis varius nibh mauris, nec volutpat diam facilisis sit amet. Quisque congue justo quis gravida semper. Maecenas tristique nec arcu ac vulputate. Nullam pharetra quis lorem a mattis. In hac habitasse platea dictumst. Curabitur nec augue ut enim vulputate aliquet. Fusce eu nunc nisi. Maecenas accumsan consequat fringilla. Cras nec leo nulla. Curabitur pellentesque turpis turpis, sed porta eros maximus et. Curabitur sit amet est vitae enim ornare molestie ac sit amet augue. Proin ullamcorper arcu non nibh vestibulum luctus. Cras non lacinia turpis.
-        </p>
-        <p class="ReadingContent" id="p9">
-            Duis malesuada lorem libero, in sagittis eros dapibus eget. Cras quis eros fermentum, molestie metus vel, sollicitudin nisi. Integer hendrerit purus quis pharetra pharetra. Maecenas sit amet neque eu augue consequat finibus quis id mauris. Donec non consequat quam. Vivamus ultrices libero sed nunc aliquam gravida. Proin eget efficitur sem, et placerat magna. Nulla facilisi. Phasellus vehicula, arcu tincidunt vehicula viverra, tortor felis commodo risus, ut hendrerit dui diam quis sem. Sed a dolor ultrices, aliquet enim a, ullamcorper nunc.
-        </p>
-        <p class="ReadingContent" id="p10">
-            Nam mauris lorem, malesuada posuere purus fermentum, fermentum feugiat turpis. Sed consequat tortor eros, finibus vehicula orci ullamcorper ut. Etiam ultricies ligula lacus, in consectetur nisi molestie id. Fusce vehicula gravida sapien, a interdum lectus tempor sed. Vestibulum euismod eros ac feugiat pharetra. Integer nec pharetra urna. In auctor diam id tempus dictum. Pellentesque metus purus, sollicitudin rutrum venenatis sed, bibendum ut ex. Morbi eleifend nec tellus non laoreet. Curabitur sed massa at magna egestas bibendum. Suspendisse ac elit sit amet nibh scelerisque iaculis. Ut at nisi sodales, mollis nibh vitae, aliquet eros. Donec odio felis, posuere tempus sapien sed, condimentum lacinia nisl. Quisque tempus pulvinar quam ac elementum. Mauris a lacus sollicitudin, volutpat sapien in, pulvinar lacus.
-        </p>
-    </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="WebGazer/build/webgazer.js"></script>
-    <script src="js_file_with_everything.js"></script>
+        body {
+            height: calc(100% - 58px);
+        }
 
-    <div id="stop">
-        <input type="button" name="Stop" value="Stop" onclick="webgazer.end();">
+        body:after {
+            content: "";
+            height: 22px;
+            display: block;
+        }
+
+        #article {
+            min-height: 100%;
+        }
+        /* End of rules responsible for the Reader page expanding to fill the window. */
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: transparent;
+            -webkit-user-select: none;
+            overflow-x: hidden;
+        }
+
+        .cached embed, .cached applet, .cached object {
+            display: none !important;
+        }
+
+        #article {
+            background: rgb(251, 251, 251);
+            background-size: 640px 254px;
+            max-width: 800px;
+            margin: 22px auto 0 auto;
+            padding-top: 12px;
+            box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+            overflow-x: hidden;
+            z-index: 0;
+            outline: none;
+            pointer-events: auto;
+            -webkit-user-select: auto;
+            -webkit-font-smoothing: subpixel-antialiased;
+        }
+
+        .page-number {
+            display: none;
+        }
+
+        .page:only-of-type .page-number {
+            display: none;
+        }
+
+        .page-number {
+            display: block;
+            font: bold 11px Helvetica, sans-serif;
+            color: #aaaaaa;
+            position: absolute;
+            right: 50px;
+            top: 15px;
+            -webkit-user-select: none;
+            cursor: default;
+            text-align: right;
+        }
+
+        .page {
+            max-width: 658px;
+            margin-left: auto;
+            margin-right: auto;
+            color: rgb(65, 65, 65);
+            padding: 45px 53px;
+            position: relative;
+            overflow: hidden;
+            transition: height .5s ease-out;
+
+            border-bottom: 1px solid rgb(206, 206, 206);
+            margin-right: 17px;
+            margin-left: 17px;
+        }
+
+        .page:last-of-type {
+            border-bottom: none;
+        }
+
+        #incoming-page-placeholder {
+            height: 30px;
+            margin-bottom: 0;
+        }
+
+        #incoming-page-corner {
+            position: absolute;
+            right: 10px;
+            top: 8px;
+        }
+
+        #incoming-page-text {
+            float: right;
+            margin-top: 2px;
+            margin-left: 8px;
+            color: #B2B2B2;
+            font: bold 11px Helvetica, sans-serif;
+            -webkit-user-select: none;
+        }
+
+        #next-page-container {
+            position:absolute;
+            display: none;
+        }
+
+        #controls {
+            position: absolute;
+            margin: 7px 0 0 56px;
+            padding: 0;
+            -webkit-user-select: none;
+            z-index: 100;
+        }
+
+        #controls * {
+            float: left;
+        }
+
+        #controls button {
+            display: block;
+            border: 0;
+            padding: 0;
+            width: 35px;
+            height: 28px;
+            background-size: 13px 14px;
+            background-repeat: no-repeat;
+            background-color: transparent;
+        }
+
+        #controls .separator {
+            display: block;
+            width: 1px;
+            height: 14px;
+            margin: 7px 0;
+            background-size: 1px 14px;
+            background-image: url(safari-resource:/ReaderResizeSeparator.png);
+        }
+
+        #zoom-out {
+            background-image: url(safari-resource:/ReaderResizeSmall.png);
+            background-position: 14px 7px;
+        }
+
+        #zoom-in {
+            background-image: url(safari-resource:/ReaderResizeLarge.png);
+            background-position: 8px 7px;
+        }
+
+        #zoom-out, #zoom-in {
+            opacity: 0.48;
+        }
+
+        #zoom-out:hover, #zoom-in:hover {
+            opacity: 0.64;
+        }
+
+        #zoom-out:active, #zoom-in:active {
+            opacity: 0.85;
+        }
+
+        .no-transition {
+            transition: none !important;
+        }
+    }
+
+    @media screen and (-webkit-min-device-pixel-ratio:2) {
+        #controls .separator {
+            background-image: url(safari-resource:/ReaderResizeSeparator@2x.png);
+        }
+
+        #zoom-out {
+            background-image: url(safari-resource:/ReaderResizeSmall@2x.png);
+        }
+
+        #zoom-in {
+            background-image: url(safari-resource:/ReaderResizeLarge@2x.png);
+        }
+    }
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="./css/index.css" data-chorus-theme="chorus" rel="stylesheet" media="all">
+    <link href="./css/custom-css.css" rel="stylesheet">
+    <link href="https://fonts.voxmedia.com/unison/stylesheets/verge.1d37918fdeeb1febc4d68217382a1e72.css" rel="stylesheet" media="all">
+    <script id="chorus-fonts" data-cid="site/font_loader-1484679828_1733_4154" data-cdata="{&quot;version&quot;:&quot;0b50f0674bed2b66b24a77410eb3f99c&quot;,&quot;catalog&quot;:[{&quot;slug&quot;:&quot;unison-nitti&quot;,&quot;family&quot;:&quot;nitti-grotesk&quot;,&quot;weight&quot;:&quot;400&quot;,&quot;style&quot;:&quot;normal&quot;},{&quot;slug&quot;:&quot;verge-adelle-sans&quot;,&quot;family&quot;:&quot;adelle-sans&quot;,&quot;weight&quot;:&quot;400&quot;,&quot;style&quot;:&quot;italic&quot;},{&quot;slug&quot;:&quot;verge-adelle-sans&quot;,&quot;family&quot;:&quot;adelle-sans&quot;,&quot;weight&quot;:&quot;600&quot;,&quot;style&quot;:&quot;normal&quot;},{&quot;slug&quot;:&quot;verge-heroic&quot;,&quot;family&quot;:&quot;Heroic&quot;,&quot;weight&quot;:&quot;500&quot;,&quot;style&quot;:&quot;italic&quot;},{&quot;slug&quot;:&quot;verge-heroic&quot;,&quot;family&quot;:&quot;Heroic&quot;,&quot;weight&quot;:&quot;500&quot;,&quot;style&quot;:&quot;normal&quot;},{&quot;slug&quot;:&quot;verge-heroic&quot;,&quot;family&quot;:&quot;Heroic&quot;,&quot;weight&quot;:&quot;600&quot;,&quot;style&quot;:&quot;italic&quot;},{&quot;slug&quot;:&quot;verge-heroic&quot;,&quot;family&quot;:&quot;Heroic&quot;,&quot;weight&quot;:&quot;700&quot;,&quot;style&quot;:&quot;normal&quot;},{&quot;slug&quot;:&quot;verge-pathways&quot;,&quot;family&quot;:&quot;Pathways&quot;,&quot;weight&quot;:&quot;400&quot;,&quot;style&quot;:&quot;normal&quot;}]}">
+
+
+
+    (function(d) {
+  try {
+    if (localStorage.getItem('chorus-fonts-0b50f0674bed2b66b24a77410eb3f99c') === 'yes') {
+      d.documentElement.className += ' fonts-loaded';
+    }
+  } catch (e) {}
+  var fontUrls = ["https://fonts.voxmedia.com/unison/stylesheets/verge.1d37918fdeeb1febc4d68217382a1e72.css"];
+  var ss = d.styleSheets;
+  for (var i=0; i<fontUrls.length; i++) {
+    var l = d.createElement('link');
+    var n = d.getElementById('chorus-fonts');
+    l.href = fontUrls[i];
+    l.rel = 'stylesheet';
+    l.media = 'none';
+    n.parentNode.insertBefore(l, n);
+  }
+
+  function onload() {
+    var i = ss.length;
+    while (i--) {
+      var idx = fontUrls.indexOf(ss[i].href)
+      if (idx > -1) {
+        ss[i].ownerNode.media = 'all';
+        fontUrls.splice(idx, 1);
+      }
+    }
+    if (fontUrls.length > 0) {
+      setTimeout(onload, 0);
+    }
+  }
+  onload();
+
+
+})(document);
+</script>
+
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+
+
+  </head>
+  <!--[if lte IE 9]><body class="ie9"><![endif]-->
+  <!--[if gte IE 10]><body class="ie"><![endif]-->
+  <body class="l-hub-page">
+
+
+
+    <div class="chorus-ad-placement chorus-ad-placement__reskin">
+
+<div id="div-gpt-ad-reskin" class="dfp_ad" data-cb-dfp-id="unit=reskin" data-cb-ad-id="Reskin">
+
+</div>
+
+</div>
+
+      <svg width="0" height="0" style="position:absolute;display:none;"><symbol viewBox="90 0 689 645" id="icon-clock"><title>clock</title>
+<path d="M489.1 322.5c0 15-5.4 27.9-16 38.6-10.7 10.7-23.6 16-38.6 16-23.7 0-40.3-10.9-49.9-32.8h-125c-6.4 0-11.6-2.1-15.7-6.1-4-4.1-6.1-9.3-6.1-15.7 0-6.4 2.1-11.6 6.1-15.7 4.1-4.1 9.4-6.1 15.8-6.1h125c5.9-13.2 15.3-22.5 28-28V125.8c0-6.4 2.1-11.6 6.1-15.7 4.1-4.1 9.3-6.1 15.7-6.1 6.4 0 11.6 2 15.7 6.1s6.1 9.3 6.1 15.7v146.8c21.9 9.5 32.9 26.1 32.8 49.9zm-54.6-306c84.2 0 156.3 29.9 216.2 89.8 59.9 59.9 89.8 131.9 89.8 216.2s-29.9 156.3-89.8 216.2c-59.9 59.9-131.9 89.8-216.2 89.8s-156.3-29.9-216.2-89.8c-59.9-59.9-89.8-131.9-89.8-216.2s29.9-156.3 89.8-216.2c59.9-59.9 132-89.8 216.2-89.8zm0 546.4c66.5 0 123.2-23.4 170.1-70.4 46.9-46.9 70.4-103.6 70.4-170.1s-23.4-123.2-70.4-170.1C557.7 105.5 501 82.1 434.5 82.1s-123.2 23.4-170.1 70.4C217.5 199.4 194 256.1 194 322.6s23.4 123.2 70.4 170.1c46.9 46.8 103.6 70.2 170.1 70.2z"></path></symbol><symbol viewBox="0 0 1000 1000" id="icon-close"><path d="M638.6 500l322.7-322.7c38.3-38.3 38.3-100.3 0-138.6S861 .4 822.7 38.7L500 361.4 177.3 38.7C139 .4 77 .4 38.7 38.7S.4 139 38.7 177.3L361.4 500 38.7 822.7C.4 861 .4 923 38.7 961.3 57.9 980.4 82.9 990 108 990s50.1-9.6 69.3-28.7L500 638.6l322.7 322.7c19.1 19.1 44.2 28.7 69.3 28.7 25.1 0 50.1-9.6 69.3-28.7 38.3-38.3 38.3-100.3 0-138.6L638.6 500z"></path></symbol><symbol viewBox="0 0 18 17" id="icon-comment"><path d="M15.667 6.654c0 3.532-3.432 6.397-7.667 6.397-.945 0-1.85-.14-2.686-.4l-4.406 2.1 1.725-3.52c-1.42-1.16-2.3-2.78-2.3-4.56C.333 3.12 3.765.257 8 .257c4.235 0 7.667 2.863 7.667 6.4z"></path></symbol><symbol viewBox="-135.7 744.2 1008.1 429.7" id="icon-down"><path d="M872.3 788.5c0 12.1-5.1 25.2-18.2 35.3l-446 335c-12.1 10.1-28.3 15.2-40.4 15.2-15.2 0-28.3-5.1-40.4-15.2l-446.1-335c-18.2-15.2-22.2-40.4-10.1-60.5s40.4-22.2 58.5-10.1l439.1 330.9 435.9-331c18.2-15.2 45.4-10.1 58.5 10.1 7.2 8.1 9.2 15.1 9.2 25.3"></path></symbol><symbol viewBox="0 0 50.062 37.479" id="icon-email"><path d="M25.085 21.866L.082 3.114A3.114 3.114 0 0 1 3.207-.012H46.96a3.113 3.113 0 0 1 3.126 3.126l-25 18.752zm0 5.613L50.087 8.726v25.64a3.113 3.113 0 0 1-3.125 3.125H3.208a3.113 3.113 0 0 1-3.125-3.125V8.727L25.085 27.48z" class="aeshape-1"></path></symbol><symbol viewBox="0 0 21.406 43.754" id="icon-facebook"><path d="M5.43 43.754v-20.53H0V15.83h5.43V9.518C5.43 4.558 8.635 0 16.024 0c2.99 0 5.204.286 5.204.286l-.175 6.903s-2.257-.03-4.72-.03c-2.663 0-3.09 1.23-3.09 3.26v5.4h8.022l-.35 7.39h-7.672v20.53H5.43z"></path></symbol><symbol viewBox="0 0 140 200" id="icon-foursquare"><path d="M114.697 27.581l-4.278 22.294c-.511 2.41-3.545 4.945-6.358 4.945h-39.7c-4.467 0-7.664 3.045-7.664 7.508v4.86c0 4.467 3.216 7.632 7.686 7.632h33.681c3.154 0 6.25 3.459 5.568 6.826-.685 3.373-3.886 20.08-4.271 21.924-.387 1.846-2.5 5-6.25 5H65.618c-5.007 0-6.521.654-9.87 4.818-3.353 4.166-33.477 40.342-33.477 40.342-.305.35-.603.249-.603-.134V27.25c0-2.85 2.478-6.194 6.194-6.194h81.78c3.01 0 5.822 2.829 5.055 6.525m3.59 87.418c1.137-4.602 13.899-69.93 18.16-90.656M120.716 0H18.809C4.745 0 .61 10.575.61 17.235v161.916c0 7.503 4.032 10.285 6.296 11.203 2.267.919 8.519 1.692 12.266-2.632 0 0 48.111-55.826 48.938-56.652 1.25-1.25 1.25-1.25 2.5-1.25h31.127c13.08 0 15.183-9.327 16.549-14.821 1.137-4.602 13.899-69.93 18.16-90.656C139.699 8.526 135.681 0 120.716 0"></path></symbol><symbol viewBox="-295 387 20 20" id="icon-full-screen"><path fill="#ccc" d="M-275 387.7c0-.2-.1-.4-.2-.5-.1-.1-.3-.2-.5-.2h-5.5c-.4 0-.7.3-.7.7 0 .4.4.8.6 1l1.4 1.4-3.9 3.9 1.9 1.9 3.9-3.9 1.4 1.4c.3.3.6.6 1 .6s.7-.3.7-.7l-.1-5.6zm-13.1 10.5l-3.9 4-1.4-1.4c-.3-.3-.6-.6-1-.6s-.6.3-.6.6v5.4c0 .2.1.4.2.5.1.1.3.2.5.2h5.4c.4 0 .6-.3.6-.6 0-.4-.4-.8-.6-.9l-1.4-1.4 4-3.9-1.8-1.9z"></path></symbol><symbol viewBox="-295 387 20 20" id="icon-full-screen-exit"><path fill="#ccc" d="M-293.2 406.9l3.9-4 1.4 1.4c.3.3.6.6 1 .6s.6-.3.6-.6v-5.4c0-.2-.1-.4-.2-.5-.1-.1-.3-.2-.5-.2h-5.4c-.4 0-.6.3-.6.6 0 .4.4.8.6.9l1.4 1.4-4 3.9 1.8 1.9zM-276.91 387.05l-3.9 4-1.4-1.4c-.3-.3-.6-.6-1-.6s-.6.3-.6.6v5.4c0 .2.1.4.2.5.1.1.3.2.5.2h5.4c.4 0 .6-.3.6-.6 0-.4-.4-.8-.6-.9l-1.4-1.4 4-3.9-1.8-1.9z"></path></symbol><symbol viewBox="0 0 39.605 39.633" id="icon-google-plus"><path d="M12.488 37.682c-4.69 0-8.08-2.97-8.08-6.537 0-3.496 3.976-6.51 8.667-6.46a10.21 10.21 0 0 1 3.04.488c2.547 1.77 4.6 2.876 5.117 4.894.096.41.15.83.15 1.26 0 3.567-2.3 6.355-8.894 6.355m1.233-21.46c-3.14-.093-6.14-2.982-6.68-7.116-.54-4.136 1.57-7.3 4.72-7.206 3.15.094 5.84 3.486 6.39 7.62.55 4.136-1.27 6.797-4.41 6.703m6.75 6.457c-1.08-.813-3.44-2.478-3.44-3.596 0-1.31.38-1.955 2.35-3.495 2.03-1.58 3.46-3.67 3.46-6.25 0-2.82-1.15-5.37-3.31-6.61h3.06L25.2 0H13.51C7.584 0 2.644 4.37 2.644 9.18c0 4.912 3.246 8.83 8.82 8.83.388 0 .764-.02 1.133-.048-.36.694-.62 1.467-.62 2.277 0 1.36.75 2.14 1.68 3.04-.702 0-1.38.02-2.12.02C4.75 23.3 0 27.97 0 32.46c0 4.412 5.726 7.173 12.513 7.173 7.737 0 12.495-4.39 12.495-8.8 0-3.54-.764-5.32-4.536-8.15M31.52.54v5.388h-5.388v2.695h5.39v5.39h2.694v-5.39h5.39V5.928h-5.39V.538"></path></symbol><symbol viewBox="0 0 105.4 105.7" class="akinline-svg" id="icon-grid"><path fill="#ccc" d="M0 0h47.7v47.7H0z" class="akshape-1"></path><path fill="#ccc" d="M57.7 0h47.7v47.7H57.7z" class="akshape-2"></path><path fill="#ccc" d="M0 58h47.7v47.7H0z" class="akshape-3"></path><path fill="#ccc" d="M57.7 58h47.7v47.7H57.7z" class="akshape-4"></path></symbol><symbol viewBox="0 0 64.37 40.34" id="icon-hamburger"><path class="alcls-1" d="M0 30h64.37v10.34H0zm0-15h64.37v10.34H0zM0 0h64.37v10.34H0z"></path></symbol><symbol viewBox="0 0 24 24" id="icon-instagram"><path d="M21.23 10.153h-2.088c.152.59.242 1.208.242 1.847a7.384 7.384 0 1 1-14.768 0c0-.638.09-1.256.243-1.847H2.77v10.155c0 .51.412.922.923.922h16.615c.51 0 .924-.413.924-.922V10.153zm0-6.46a.923.923 0 0 0-.923-.924h-2.77a.92.92 0 0 0-.922.92v2.77c0 .51.413.92.923.92h2.77c.51 0 .923-.42.923-.93V3.69zM12 7.383A4.615 4.615 0 0 0 7.385 12a4.615 4.615 0 1 0 9.231-.001A4.62 4.62 0 0 0 12 7.379M21.23 24H2.77A2.77 2.77 0 0 1 0 21.23V2.77A2.77 2.77 0 0 1 2.77 0h18.46A2.77 2.77 0 0 1 24 2.77v18.46A2.77 2.77 0 0 1 21.23 24"></path></symbol><symbol viewBox="-27.7 455.1 337.2 791.1" id="icon-left"><path fill="inherit" d="M274.8 1246.2c-9.5 0-19.8-4-27.7-14.3l-262.9-350c-7.9-9.5-11.9-22.2-11.9-31.7 0-11.9 4-22.2 11.9-31.7l262.9-350.1c11.9-14.3 31.7-17.4 47.5-7.9 15.8 9.5 17.4 31.7 7.9 45.9L42.8 851l259.8 342.1c11.9 14.3 7.9 35.6-7.9 45.9-6.4 5.6-11.9 7.2-19.9 7.2"></path></symbol><symbol viewBox="0 0 16 16" id="icon-linkedin"><path d="M.2 15.876h3.394V5.222H.2v10.654zM1.997 0C.8 0 0 .836 0 1.88s.8 1.88 1.997 1.88 1.997-.836 1.997-1.88C3.794.836 2.994 0 1.997 0zm9.985 4.804c-1.798 0-2.596 1.045-2.996 1.88V5.222H5.392c.2 1.045 0 10.862 0 10.862h3.395V9.818c0-.21 0-.627.2-.836.2-.626.798-1.253 1.796-1.253 1.2 0 1.798 1.04 1.798 2.5v5.64h3.4V9.82c0-3.342-1.79-5.014-3.99-5.014z"></path></symbol><symbol viewBox="-375 489.5 37.2 30.3" id="icon-menu"><title>menu</title>
+<path d="M-367 489.5h29.1v3.8H-367zm-8 0h4.4v3.8h-4.4zm8 12.8h29.1v3.8H-367zm-8 0h4.4v3.8h-4.4zm8 13.7h29.1v3.8H-367zm-8 0h4.4v3.8h-4.4z"></path></symbol><symbol viewBox="0 0 179 96" id="icon-more"><title>more-arrow</title>
+<path d="M178.86 47.677L129.776 0v34.313H0v26.625h116.296v.103h13.48v34.31l49.084-47.67"></path></symbol><symbol viewBox="0 0 832 512" id="icon-norgie-down"><path d="M15.244 98.497L379.433 495.43c20.249 22.24 53.137 22.23 73.373-.021.51-.608.71-1.47 1.25-2.077L817.152 98.259c20.233-22.224 20.223-58.326-.028-80.54-.202-.1-.531-.202-.735-.404C807.065 6.732 793.993-.005 779.353 0L52.923.208C38.073.212 24.903 7.286 15.43 18.18l-.2-.227c-20.314 22.325-20.304 58.33.023 80.543h-.008z"></path></symbol><symbol viewBox="0 0 512 832.328" id="icon-norgie-right"><path d="M98.278 817.088l397.038-364.076c22.245-20.243 22.245-53.13 0-73.373-.608-.51-1.47-.71-2.077-1.25L98.27 15.18c-22.218-20.24-58.32-20.24-80.54.005-.1.202-.202.53-.404.734C6.74 25.24 0 38.31 0 52.95v726.43c0 14.85 7.07 28.022 17.963 37.5l-.228.2c22.32 20.32 58.324 20.32 80.543 0z"></path></symbol><symbol viewBox="0 0 47.3 34.3" id="icon-opentable"><path d="M30.1 0C20.7 0 13 7.7 13 17.2s7.7 17.2 17.2 17.2 17.2-7.7 17.2-17.2C47.3 7.7 39.6 0 30.1 0zm0 21.5c-2.4 0-4.3-1.9-4.3-4.3s1.9-4.3 4.3-4.3 4.3 1.9 4.3 4.3c0 2.3-1.9 4.3-4.3 4.3zM0 17.2c0 2.4 1.9 4.3 4.3 4.3s4.3-1.9 4.3-4.3-1.9-4.3-4.3-4.3S0 14.8 0 17.2"></path></symbol><symbol viewBox="0 0 12 12" id="icon-pencil"><path d="M1.3 8.4c0 .1 0 .1 0 0L0 11.6c0 .1 0 .2.1.3 0 .1.1.1.1.1h.1l3.1-1.2s.1 0 .1-.1l6.2-6.2-2.2-2.3-6.2 6.2zm10.5-7L10.6.2c-.3-.3-.8-.3-1.1 0L8.2 1.5l2.2 2.2 1.3-1.3c.4-.2.4-.7.1-1z"></path></symbol><symbol viewBox="0 0 60.7 93.3" id="icon-pin"><path d="M57.2 34.6c0 4.8-1.3 9.3-3.5 13.2L31.8 87.5c-.3.5-.9.8-1.5.8-.7 0-1.2-.4-1.5-.8L6.9 47.7c-2.2-3.8-3.5-8.4-3.5-13.2 0-14.8 12-26.9 26.9-26.9 14.9.1 26.9 12.1 26.9 27zm-16.8 0c0-5.6-4.5-10.1-10.1-10.1S20.2 29 20.2 34.6s4.5 10.1 10.1 10.1 10.1-4.5 10.1-10.1z" xmlns="http://www.w3.org/2000/svg"></path></symbol><symbol viewBox="-285 377 40 40" id="icon-pinterest"><path d="M-265 377.1c-10.9 0-19.7 8.9-19.7 19.8 0 8.1 4.9 15 11.8 18.1-.1-1.4 0-3 .3-4.5.4-1.6 2.5-10.8 2.5-10.8s-.6-1.3-.6-3.1c0-2.9 1.7-5.1 3.8-5.1 1.8 0 2.7 1.3 2.7 3 0 1.8-1.2 4.5-1.7 7-.5 2.1 1 3.8 3.1 3.8 3.7 0 6.3-4.8 6.3-10.5 0-4.3-2.9-7.6-8.2-7.6-6 0-9.7 4.5-9.7 9.5 0 1.7.5 2.9 1.3 3.9.4.4.4.6.3 1.1l-.4 1.6c-.1.5-.5.7-1 .5-2.8-1.1-4-4.1-4-7.5 0-5.6 4.7-12.3 14.1-12.3 7.5 0 12.5 5.5 12.5 11.3 0 7.7-4.3 13.5-10.7 13.5-2.1 0-4.1-1.2-4.8-2.5 0 0-1.1 4.5-1.4 5.4-.4 1.5-1.2 3-2 4.2 1.8.5 3.7.8 5.6.8 10.9 0 19.7-8.8 19.7-19.7 0-11-8.9-19.9-19.8-19.9z"></path></symbol><symbol viewBox="-230 372 50 50" id="icon-play"><path fill="#999" d="M-214 376l25.6 21.1L-214 418v-42z"></path></symbol><symbol viewBox="0 0 17 17" id="icon-rec"><path d="M7.544.405l2.305 4.64 5.15.743L11.27 9.4l.88 5.1-4.61-2.407-4.6 2.407.88-5.1L.087 5.79l5.153-.744L7.545.404z"></path></symbol><symbol viewBox="0 0 450 386" id="icon-refresh"><path d="M352.629 288.14l96-111.9h-64.7c-2.3-27.9-10.5-54-23.5-77.3-27.4-49.2-75.8-85.1-133-95.6-.7-.1-1.5-.3-2.2-.4-.5-.1-.9-.2-1.4-.2-10.1-1.7-20.6-2.6-31.2-2.6h-.4c-90.9.2-167 63.6-186.7 148.6v.1c-.3 1.1-.5 2.2-.7 3.3-.1.5-.2.9-.3 1.4-.1.7-.3 1.4-.4 2.1-.2.9-.3 1.7-.5 2.6-.1.4-.1.7-.2 1.1l-.6 3.6v.2c-1 6.3-1.6 12.7-1.9 19.1v.8c-.1 1.4-.1 2.7-.2 4.1 0 1.6-.1 3.3-.1 5 0 1.7 0 3.3.1 5 0 1.4.1 2.7.2 4.1v.9c.3 6.5 1 12.9 1.9 19.1v.2l.6 3.6c.1.4.1.7.2 1.1.2.9.3 1.8.5 2.6.1.7.3 1.4.4 2.1.1.5.2 1 .3 1.4.2 1.1.5 2.2.7 3.2v.1c19.7 85 96.1 148.4 187.1 148.6 42.9-.1 83.1-14.2 116.9-40.7l7.5-5.9-43.2-46.2-6.2 4.6c-22.1 16.3-47.5 24.2-75 24.2-70.6 0-128-57-128-128s57.4-128 128-128c66.4 0 122.8 46.6 129.5 112h-73.5l104 112z" bx:origin="0.5 0.5"></path></symbol><symbol viewBox="-27.7 455.1 337.2 791.1" id="icon-right"><path fill="inherit" d="M6.9 455.1c9.5 0 19.8 4 27.7 14.3l262.9 350.1c7.9 9.5 11.9 22.2 11.9 31.7 0 11.9-4 22.2-11.9 31.7l-262.8 350c-11.9 14.3-31.7 17.4-47.5 7.9-15.8-9.5-17.4-31.7-7.9-45.9L239 850.3-20.8 508.2c-11.9-14.3-7.9-35.6 7.9-45.9 6.4-5.6 11.9-7.2 19.8-7.2"></path></symbol><symbol viewBox="0 0 1000 1000" preserveAspectRatio="xMinYMin meet" id="icon-rss"><path d="M0 866q0-55 39-94t94-39 94 39 39 94q0 56-39 94.5T133 999t-94-39-39-94zm0-335V340q179 0 331 88.5T571.5 669t88.5 331H468q0-194-137-331Q193 531 0 531zm0-339V0q203 0 388 79.5T707 293t213.5 319 79.5 388H808q0-164-64-314T571.5 428t-258-172T0 192z"></path></symbol><symbol viewBox="0 0 16 16" id="icon-search"><path d="M15.883 13.762l-3.855-3.856A6.46 6.46 0 0 0 13 6.5 6.5 6.5 0 1 0 6.5 13a6.46 6.46 0 0 0 3.407-.973l3.855 3.856a.4.4 0 0 0 .565 0l1.556-1.556a.4.4 0 0 0 0-.565zM2 6.5a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0z" class="bcshape-1"></path></symbol><symbol viewBox="206 29.9 642.1 681.3" id="icon-settings"><path d="M843 467.2c4.8 3.2 6.3 9.5 4 15-13.5 41.2-36.4 79.2-64.2 111.7-4 4.8-9.5 6.3-15 4l-81.6-28.5c-20.6 16.6-43.6 30.1-67.3 39.6l-16.6 84.7c-.8 5.5-5.5 10.3-11.1 11.1-21.4 4-42.8 6.3-64.2 6.3-22.2 0-43.6-2.4-64.2-6.3-5.5-.8-10.3-5.5-11.1-11.1L435.2 609c-24.6-9.5-48.3-23-67.3-39.6l-81.6 28.5c-5.5 2.4-11.1.8-15-4-28.5-32.5-51.5-70.5-64.2-111.7-2.4-5.5-.8-11.9 4-15l64.9-57c-2.4-12.7-3.2-26.1-3.2-39.6s.8-26.9 3.2-39.6l-65-57c-4.8-3.2-6.3-9.5-4-15 13.5-41.2 36.4-79.2 64.2-111.7 4-4.8 9.5-6.3 15-4l81.6 28.5c19.8-16.6 43.6-30.1 67.3-39.6l16.6-84.7c.8-5.5 5.5-10.3 11.1-11.1 42.8-8.7 86.3-8.7 129.1 0 5.5.8 10.3 5.5 11.1 11.1l15 85.5c24.6 9.5 47.5 23 67.3 39.6l81.6-28.5c5.5-2.4 11.1-.8 15 4 28.5 32.5 51.5 70.5 64.2 111.7 2.4 5.5.8 11.9-4 15l-65.7 57c2.4 12.7 3.2 26.1 3.2 39.6s-.8 26.9-3.2 39.6l66.6 56.2zm-190-95.8c0-69.7-57.8-127.5-127.5-127.5-70.5 0-127.5 57-127.5 127.5s57 127.5 127.5 127.5S653 441.9 653 371.4z"></path></symbol><symbol viewBox="0 0 17 17" id="icon-star"><path d="M7.544.405l2.305 4.64 5.15.743L11.27 9.4l.88 5.1-4.61-2.407-4.6 2.407.88-5.1L.087 5.79l5.153-.744L7.545.404z"></path></symbol><symbol viewBox="19.3 54.3 26.9 33.7" id="icon-thumb"><path d="M19.3 84.4c0-4.8 0-9.4.1-14 0-.4 1-1 1.6-1.2 4.2-1.1 7.7-3.2 9.6-7.3.7-1.6.9-3.4 1.5-5 .4-.9 1.2-1.7 1.8-2.5.7.8 2 1.6 2.1 2.5.2 2.2 0 4.5-.2 6.8-.1.9-.4 1.8-.6 3h5.1c1.2 0 2.4 0 3.5.2 1.9.3 2.4 1.3 2.2 3.2-.1 1.2.1 2.4.1 3.6 0 1 0 1.9-.1 2.9-.1 1.1 0 2.2-.3 3.1-1 2.6-2.1 5.2-3.4 7.6-.3.6-1.8.7-2.7.7-2.4.1-4.8.2-7.2 0-1.4-.1-2.9-.5-4-1.3-2.2-1.7-4.4-2.3-7.1-2.1-.6-.1-1.2-.2-2-.2z"></path></symbol><symbol viewBox="0 0 60.7 93.3" id="icon-topics"><g xmlns="http://www.w3.org/2000/svg"><path d="M2.5 21.5h55.2v11.8H2.5zM2.5 42.1h55.2v11.8H2.5zM2.5 64.3h55.2v11.8H2.5z"></path></g></symbol><symbol viewBox="0 0 87 60" id="icon-trending"><path d="M1.906 46.826c2.213 1.787 5.466 1.46 7.262-.743v-.006l5.26-6.45 8.378 11.286a5.171 5.171 0 0 0 4.827 2.035 5.128 5.128 0 0 0 4.124-3.215l7.96-20.208L51.26 56.577a5.155 5.155 0 0 0 4.754 3.13c.097 0 .19 0 .286-.007a5.172 5.172 0 0 0 4.66-3.667l10.98-36.787 4.854 9.902c1.234 2.552 4.33 3.613 6.89 2.37 2.56-1.234 3.636-4.314 2.386-6.86L75.42 2.888a5.15 5.15 0 0 0-5.067-2.87 5.135 5.135 0 0 0-4.52 3.653L55.146 39.42 44.28 13.93a5.142 5.142 0 0 0-4.827-3.127 5.157 5.157 0 0 0-4.73 3.263L25.56 37.343l-6.79-9.148a5.197 5.197 0 0 0-4.033-2.08 5.139 5.139 0 0 0-4.124 1.897L1.153 39.6a5.125 5.125 0 0 0 .753 7.226" fill-rule="evenodd"></path></symbol><symbol viewBox="0 0 23.62 41.098" id="icon-tumblr"><path d="M21.643 32.826c-.764.364-2.226.682-3.316.71-3.29.088-3.927-2.31-3.955-4.052V16.69h8.252v-6.22h-8.222V0h-6.02c-.1 0-.272.087-.296.307C7.734 3.512 6.234 9.135 0 11.382v5.31h4.16V30.12c0 4.595 3.39 11.126 12.343 10.974 3.02-.053 6.375-1.318 7.117-2.408l-1.977-5.86z"></path></symbol><symbol viewBox="0 0 44.71 36.327" id="icon-twitter"><path d="M44.71 4.295c-1.656.724-3.415 1.242-5.278 1.45A9.146 9.146 0 0 0 43.468.673a18.75 18.75 0 0 1-5.796 2.225C35.965 1.138 33.584 0 30.945 0a9.145 9.145 0 0 0-9.16 9.16c0 .724.052 1.448.208 2.12-7.607-.413-14.335-3.88-18.888-9.417-.777 1.345-1.242 2.742-1.242 4.45 0 3.157 1.604 5.95 4.088 7.607a9.376 9.376 0 0 1-4.14-1.138v.103c0 4.45 3.16 8.176 7.35 9.004-.77.2-1.6.31-2.43.31-.57 0-1.14-.06-1.71-.16 1.14 3.62 4.56 6.31 8.54 6.36-3.1 2.48-7.09 4.34-11.38 4.34-.72 0-1.45-.05-2.17-.16 4.04 2.59 8.9 3.72 14.08 3.72 16.87 0 26.08-13.97 26.08-26.08V9.05c1.76-1.294 3.32-2.9 4.56-4.76"></path></symbol><symbol viewBox="-235.8 423.2 35.7 21.3" id="icon-up"><path fill="none" d="M-200.5 444.2L-218 424l-17.5 20.2"></path></symbol><symbol viewBox="0 0 43.756 43.756" id="icon-user"><path d="M43.756 42.845a.908.908 0 0 1-.912.912H.912A.908.908 0 0 1 0 42.845v-1.823c0-9.116 16.41-7.292 16.41-14.585 0 0-5.47-5.47-5.47-15.497C10.94 4.913 15.85 0 21.877 0c6.027 0 10.94 4.913 10.94 10.94 0 10.027-5.47 15.496-5.47 15.496 0 7.293 16.408 5.47 16.408 14.585v1.83z"></path></symbol><symbol viewBox="0 0 1146 1000" id="icon-vimeo"><path d="M0 272q55-65 110-116t95.5-77.5 72.5-43T326 14l17-4q12-2 24-2 19 0 35 6 26 10 42.5 34.5t29 55 21.5 72 15 77.5 13.5 79.5T538 403q32 125 51.5 177.5T631 633q24 0 66.5-55.5T791 426q26-48 26-91 0-13-2-23-9-52-51-65-11-4-24-4-35 0-83 26 22-130 134-209Q876 0 965 0q12 0 24 1 102 8 139 90 18 38 18 88 0 29-6 61-18 102-69.5 208t-113 187.5-132.5 155-123.5 117T611 976q-42 24-78.5 24T463 979t-56-48-38-57q-18-38-97.5-298.5T175 295q-1-2-4-4t-13.5-4.5-24 0-36.5 14T47 333z"></path></symbol><symbol viewBox="0 0 86.965 87.642" id="icon-whatsapp"><path fill-rule="evenodd" clip-rule="evenodd" d="M44.038 13.007c-16.58 0-30.02 13.44-30.02 30.02a29.883 29.883 0 0 0 4.307 15.503l-5.418 16.106 16.62-5.32a29.915 29.915 0 0 0 14.512 3.733c16.58 0 30.02-13.45 30.02-30.03C74.06 26.44 60.61 13 44.03 13zm0 55.013a24.85 24.85 0 0 1-13.75-4.132l-9.604 3.074 3.122-9.28a24.858 24.858 0 0 1-4.76-14.653c0-13.79 11.212-25 24.993-25 13.78 0 24.99 11.21 24.99 24.99 0 13.78-11.22 24.99-25 24.99zm14.075-18.17c-.753-.412-4.45-2.407-5.143-2.69-.693-.28-1.2-.427-1.74.32s-2.072 2.418-2.538 2.913c-.467.495-.916.54-1.668.128-.752-.41-3.19-1.31-6.02-4.03-2.202-2.11-3.646-4.68-4.065-5.46-.42-.78-.01-1.18.39-1.55.35-.33.8-.86 1.2-1.3.4-.43.54-.74.81-1.25.27-.5.16-.95-.02-1.34s-1.57-4.22-2.15-5.77c-.58-1.56-1.23-1.32-1.68-1.34-.45-.01-.96-.1-1.47-.12-.51-.02-1.35.14-2.08.89-.73.74-2.78 2.52-2.92 6.29-.14 3.77 2.47 7.52 2.83 8.04.36.53 4.98 8.7 12.66 12.06 7.67 3.36 7.71 2.34 9.12 2.26 1.41-.07 4.6-1.68 5.31-3.45.7-1.76.76-3.3.58-3.62-.18-.32-.68-.54-1.43-.95z"></path></symbol><symbol viewBox="130.35156 177.43359 300 300" overflow="visible" id="icon-yahoo"><path d="M420.926 272.27c-5.2.514-26.85 5.365-34.13 6.925-7.79 2.073-78.983 57.075-83.66 70.58-1.036 4.674-1.556 11.866-1.556 18.624l-.52 10.91c-.002 7.79 2.162 20.35 3.198 27.1 4.68 1.04 38.555.13 44.79 1.17l-.768 13.97c-6.09-.45-49.106-.34-73.68-.34-12.475 0-52.576 1.37-64.897 1l2.33-13.29c6.755-.53 34.728 1.2 40.878-5.29 3.06-3.22 2.09-6.67 2.09-25.38v-8.83c0-4.16 0-11.96-1.04-19.24-2.59-7.8-65.3-86.09-81.41-98.56-4.68-1.56-33.99-4.49-41.26-6.05l-.36-11.97c3.63-1.82 36.22.44 67.85-.73 20.79-.77 68.22 0 74.07.7l-1.5 10.55c-6.23 1.56-36.26 2.14-44.06 4.21 20.27 30.14 52.31 68.94 62.71 84.01 5.72-8.31 55.96-42.87 57.51-54.82-7.79-1.57-33.6-5.28-37.76-5.28l-2.47-13.61c7.08-1.11 44.28 0 62.78 0 15.96 0 50.07 0 59.76.79l-8.86 12.81"></path></symbol><symbol viewBox="0 0 462 325" id="icon-youtube"><path d="M234.28 1.691c-53.492 0-132.53 3.24-156.188 4.031C52.396 8.02 42.884 9.366 28.811 21.41 7.368 40.48 2.28 77.954 2.28 135.285v54.562c0 65.439 8.69 98.684 23 110.844 16.517 14.17 27.407 15.302 38.406 17 4.27.646 34.49 6 168.594 6 83.626 0 155.507-3.95 162.937-4.906 11.945-1.508 29.104-3.696 42.063-18.094 19.183-21.803 23-57.999 23-110.437V126.69c0-33.943-1.891-81.916-23-102-15.991-13.536-21.848-17.367-54.938-19.031-9.358-.462-91.02-3.969-148.062-3.969zm-49.5 97l123.5 63.75-123.5 64.25v-128z"></path></symbol></svg>
+
+      <div class="l-root l-reskin">
+    <div class="chorus-ad-placement chorus-ad-placement__prelude">
+
+<div id="div-gpt-ad-prelude" class="dfp_ad" data-cb-dfp-id="unit=prelude" data-cb-ad-id="Prelude">
+
+</div>
+
+</div>
+
+
+<div class="chorus-emc__content" data-emc-slug="UnisonCustomNavCell" data-emc-bucket="372::front-page">
+    <div class="c-masthead">
+  <div class="c-masthead__main" style="background-image: url(https://cdn2.vox-cdn.com/uploads/chorus_asset/file/7383237/Masthead_LR_1.0.png)">
+
+      <a href="/">
+        <span class="c-masthead__logo">
+  <svg fill="#fff" xmlns="http://www.w3.org/2000/svg" viewBox="0 291.4 1280 217.2"><path d="M0 292.1v58.1h39.7v153.2h67.1V292.1M220.1 372.4h-31.4v-22.3h15.8v-58h-82.8v211.3h67v-79.9h31.4v79.9h67.2V292.1h-67.2M302 503.4h124.3v-58.2h-60.2v-24.6h38.3v-48.2h-38.3v-22.2h60.2v-58.1H302M954.8 363.6c0-45.6-33.7-71.5-81.5-71.5h-74.7v211.2h67.1v-54.1l38.4 54.1h75.7l-54.4-81c19.6-10.7 29.4-30.2 29.4-58.7M865.5 387v-39.3c9.3 0 20.7 2.8 24.1 13 .3.9.5 1.9.8 2.9 0 .1 0 .3.1.4.1 1 .3 2.2.3 3.4 0 15.7-14.3 19.6-25.3 19.6M559.2 420.8h-.6l-4.8-17.4-15-53.1h26.4l17.4-58.2h-134l76.8 211.2h68.8l8.3-22.6s36.8-99.8 56.9-154.2v176.8h124.3v-58.2h-60.2v-24.6h38.2v-48.1h-38.2v-22.2h60.2V292H598l-38.8 128.8zM1280 350.3v-58.1h-124.3v211.2H1280v-58.2h-60.3v-24.6h38.3v-48h-38.3v-22.3"></path><path d="M1142.8 459.1V373H1048v48h35.3v17.1c-2.7 2.4-8.5 3.7-14.5 3.7-24.6 0-42.8-19.4-42.8-43.1s17.7-44.7 42.3-44.7c14.9 0 50.2.1 50.2.1v-62.6h-16.1c-30 0-59.9-2.4-87.4 11.8-21.7 11.2-38.9 30.2-48 52.8-5.3 13.3-8 27.7-8 42 0 59.9 47 110.4 107.9 110.4 30.2 0 59.7-11.3 75.8-25.4.1-14.6.1-16.8.1-24"></path></svg>
+
+</span>
+      </a>
+
+    <div class="c-masthead__tagline">
+      Wednesday, January 18, 2017
+
+        | <a href="http://www.theverge.com/2017/1/17/14306464/japanese-toilet-control-icons-meaning-standard">🌬</a>
+
     </div>
+  </div>
+
+<header class="c-global-header inline" data-cid="site/global_header" role="banner" data-analytics-placement="navigation">
+  <div class="l-wrapper">
+    <div class="c-global-header__logo ">
+      <a href="/" tabindex="1" id="chorus-brand" data-analytics-link="home">
+
+          <span class="c-global-header__logo-large">
+
+  <svg fill="#fff" xmlns="http://www.w3.org/2000/svg" viewBox="0 291.4 1280 217.2"><path d="M0 292.1v58.1h39.7v153.2h67.1V292.1M220.1 372.4h-31.4v-22.3h15.8v-58h-82.8v211.3h67v-79.9h31.4v79.9h67.2V292.1h-67.2M302 503.4h124.3v-58.2h-60.2v-24.6h38.3v-48.2h-38.3v-22.2h60.2v-58.1H302M954.8 363.6c0-45.6-33.7-71.5-81.5-71.5h-74.7v211.2h67.1v-54.1l38.4 54.1h75.7l-54.4-81c19.6-10.7 29.4-30.2 29.4-58.7M865.5 387v-39.3c9.3 0 20.7 2.8 24.1 13 .3.9.5 1.9.8 2.9 0 .1 0 .3.1.4.1 1 .3 2.2.3 3.4 0 15.7-14.3 19.6-25.3 19.6M559.2 420.8h-.6l-4.8-17.4-15-53.1h26.4l17.4-58.2h-134l76.8 211.2h68.8l8.3-22.6s36.8-99.8 56.9-154.2v176.8h124.3v-58.2h-60.2v-24.6h38.2v-48.1h-38.2v-22.2h60.2V292H598l-38.8 128.8zM1280 350.3v-58.1h-124.3v211.2H1280v-58.2h-60.3v-24.6h38.3v-48h-38.3v-22.3"></path><path d="M1142.8 459.1V373H1048v48h35.3v17.1c-2.7 2.4-8.5 3.7-14.5 3.7-24.6 0-42.8-19.4-42.8-43.1s17.7-44.7 42.3-44.7c14.9 0 50.2.1 50.2.1v-62.6h-16.1c-30 0-59.9-2.4-87.4 11.8-21.7 11.2-38.9 30.2-48 52.8-5.3 13.3-8 27.7-8 42 0 59.9 47 110.4 107.9 110.4 30.2 0 59.7-11.3 75.8-25.4.1-14.6.1-16.8.1-24"></path></svg>
+
+
+          </span>
+
+
+          <span class="c-global-header__logo-small">
+
+  <svg fill="#fff" xmlns="http://www.w3.org/2000/svg" viewBox="0 291.4 1280 217.2"><path d="M0 292.1v58.1h39.7v153.2h67.1V292.1M220.1 372.4h-31.4v-22.3h15.8v-58h-82.8v211.3h67v-79.9h31.4v79.9h67.2V292.1h-67.2M302 503.4h124.3v-58.2h-60.2v-24.6h38.3v-48.2h-38.3v-22.2h60.2v-58.1H302M954.8 363.6c0-45.6-33.7-71.5-81.5-71.5h-74.7v211.2h67.1v-54.1l38.4 54.1h75.7l-54.4-81c19.6-10.7 29.4-30.2 29.4-58.7M865.5 387v-39.3c9.3 0 20.7 2.8 24.1 13 .3.9.5 1.9.8 2.9 0 .1 0 .3.1.4.1 1 .3 2.2.3 3.4 0 15.7-14.3 19.6-25.3 19.6M559.2 420.8h-.6l-4.8-17.4-15-53.1h26.4l17.4-58.2h-134l76.8 211.2h68.8l8.3-22.6s36.8-99.8 56.9-154.2v176.8h124.3v-58.2h-60.2v-24.6h38.2v-48.1h-38.2v-22.2h60.2V292H598l-38.8 128.8zM1280 350.3v-58.1h-124.3v211.2H1280v-58.2h-60.3v-24.6h38.3v-48h-38.3v-22.3"></path><path d="M1142.8 459.1V373H1048v48h35.3v17.1c-2.7 2.4-8.5 3.7-14.5 3.7-24.6 0-42.8-19.4-42.8-43.1s17.7-44.7 42.3-44.7c14.9 0 50.2.1 50.2.1v-62.6h-16.1c-30 0-59.9-2.4-87.4 11.8-21.7 11.2-38.9 30.2-48 52.8-5.3 13.3-8 27.7-8 42 0 59.9 47 110.4 107.9 110.4 30.2 0 59.7-11.3 75.8-25.4.1-14.6.1-16.8.1-24"></path></svg>
+
+
+          </span>
+
+
+
+      </a>
+    </div>
+
+      <ul class="c-global-header__social">
+
+          <li><a href="https://www.facebook.com/verge" tabindex="2">
+            <svg class="p-svg-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-facebook"></use></svg>
+          </a></li>
+
+          <li><a href="https://twitter.com/verge" tabindex="3">
+            <svg class="p-svg-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-twitter"></use></svg>
+          </a></li>
+
+          <li><a href="/rss/index.xml" tabindex="4">
+            <svg class="p-svg-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-rss"></use></svg>
+          </a></li>
+
+      </ul>
+
+
+      <div class="c-global-header__actions">
+
+
+      <div class="c-global-header__login">
+        <a class="c-global-header__login-icon" href="https://auth.voxmedia.com/login" data-ui="icon" tabindex="5"><svg class="c-global-header__login-svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-user"></use></svg>
+          <span class="u-hidden-text">Log In or Sign Up</span>
+        </a>
+        <ul class="c-global-header__login-menu" data-ui="menu">
+          <li class="c-global-header__login-menu-item">
+            <a href="https://auth.voxmedia.com/login" data-ui-signin="login" tabindex="6" data-analytics-link="login">Log In</a>
+          </li>
+          <li class="c-global-header__login-menu-item">
+            <a href="https://auth.voxmedia.com/signup" data-ui-signin="signup" tabindex="7" data-analytics-link="signup">Sign Up</a>
+          </li>
+        </ul>
+      </div>
+
+
+      <div class="c-global-header__search">
+        <button type="submit" class="c-global-header__search-trigger" tabindex="8">
+          <svg class="c-global-header__login-svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-search"></use></svg>
+        </button>
+      </div>
+
+
+      </div>
+
+
+      <div class="p-input-header c-global-header__search-menu" data-analytics-class="search">
+  <form action="/search" method="GET" data-analytics-class="search">
+    <input class="p-input-header__input" name="q" placeholder="Search">
+    <input type="submit" class="p-input-header__link p-button" value="Go">
+  </form>
+</div>
+
+
+
+    <nav class="c-global-header__links">
+      <ul>
+
+
+
+            <li class="c-global-header__link is-pinned" data-nav-item-id="tech" data-nav-list-trigger="tech">
+
+              <a href="/tech" tabindex="9">
+
+              Tech
+
+                <span class="c-global-header__link-arrow"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-norgie-down"></use></svg></span>
+
+              </a>
+
+            </li>
+
+            <li class="c-global-header__link is-pinned" data-nav-item-id="science" data-nav-list-trigger="science">
+
+              <a href="/science" tabindex="10">
+
+              Science
+
+                <span class="c-global-header__link-arrow"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-norgie-down"></use></svg></span>
+
+              </a>
+
+            </li>
+
+            <li class="c-global-header__link is-pinned" data-nav-item-id="culture" data-nav-list-trigger="culture">
+
+              <a href="/culture" tabindex="11">
+
+              Culture
+
+                <span class="c-global-header__link-arrow"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-norgie-down"></use></svg></span>
+
+              </a>
+
+            </li>
+
+            <li class="c-global-header__link hidden" data-nav-item-id="cars" data-nav-list-trigger="cars">
+
+              <a href="/transportation" tabindex="12">
+
+              Cars
+
+                <span class="c-global-header__link-arrow"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-norgie-down"></use></svg></span>
+
+              </a>
+
+            </li>
+
+            <li class="c-global-header__link hidden" data-nav-item-id="reviews" data-nav-list-trigger="reviews">
+
+              <a href="/reviews" tabindex="13">
+
+              Reviews
+
+                <span class="c-global-header__link-arrow"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-norgie-down"></use></svg></span>
+
+              </a>
+
+            </li>
+
+            <li class="c-global-header__link hidden" data-nav-item-id="longform">
+
+              <a href="/longform" tabindex="14">
+
+              Longform
+
+              </a>
+
+            </li>
+
+            <li class="c-global-header__link hidden" data-nav-item-id="video">
+
+              <a href="https://goo.gl/G5RXGs" tabindex="15">
+
+              Video
+
+              </a>
+
+            </li>
+
+            <li class="c-global-header__link hidden" data-nav-item-id="circuit-breaker">
+
+              <a href="/circuitbreaker" tabindex="16">
+
+              Circuit Breaker
+
+              </a>
+
+            </li>
+
+            <li class="c-global-header__link hidden" data-nav-item-id="forums">
+
+              <a href="/forums" tabindex="17">
+
+              Forums
+
+              </a>
+
+            </li>
+
+            <li class="c-global-header__link hidden" data-nav-item-id="tl-dr">
+
+              <a href="/tldr" tabindex="18">
+
+              TL;DR
+
+              </a>
+
+            </li>
+
+
+        <li class="c-global-header__link-more " data-nav-list-trigger="more">
+          <a class="c-global-header__label">
+            more
+            <span class="c-global-header__link-arrow"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-norgie-down"></use></svg></span>
+            <span class="c-global-header__link-hamburger"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-hamburger"></use></svg></span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+<section class="c-nav-list" data-cid="site/nav_list-1484733347_1702_26682" data-cdata="{&quot;tab_id&quot;:&quot;more&quot;}">
+  <div class="c-nav-list__inner">
+
+    <ul class="c-nav-list__main" data-nav-list-id="more">
+
+        <li data-nav-item-id="tech" data-nav-list-id="tech">
+
+          <a class="c-nav-list__label" href="/tech">
+            Tech
+
+              <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-norgie-down"></use></svg>
+
+          </a>
+
+
+
+
+
+              <ul class="c-nav-list__sub-items">
+
+
+                    <div class="c-nav-list__col">
+
+
+                    <li>
+
+                        <a href="/apple">Apple</a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="/google">Google</a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="/microsoft">Microsoft</a>
+
+                    </li>
+
+
+                    </div>
+
+
+
+                    <div class="c-nav-list__col">
+
+
+                    <li>
+
+                        <a href="/label/apps">Apps</a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="/label/photography">Photography</a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="/label/vr-virtual-reality">Virtual Reality</a>
+
+                    </li>
+
+
+                    </div>
+
+
+
+                  <li class="c-nav-list__all-link">
+                    <a href="/tech">All Tech</a>
+                  </li>
+
+              </ul>
+
+
+        </li>
+
+        <li data-nav-item-id="science" data-nav-list-id="science">
+
+          <a class="c-nav-list__label" href="/science">
+            Science
+
+              <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-norgie-down"></use></svg>
+
+          </a>
+
+
+
+
+
+              <ul class="c-nav-list__sub-items">
+
+
+
+                    <li>
+
+                        <a href="/label/space">Space</a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="/label/energy">Energy</a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="/label/health">Health</a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="/label/environment">Environment</a>
+
+                    </li>
+
+
+
+
+                  <li class="c-nav-list__all-link">
+                    <a href="/science">All Science</a>
+                  </li>
+
+              </ul>
+
+
+        </li>
+
+        <li data-nav-item-id="culture" data-nav-list-id="culture">
+
+          <a class="c-nav-list__label" href="/culture">
+            Culture
+
+              <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-norgie-down"></use></svg>
+
+          </a>
+
+
+
+
+
+              <ul class="c-nav-list__sub-items">
+
+
+                    <div class="c-nav-list__col">
+
+
+                    <li>
+
+                        <a href="/web">Web</a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="/label/tv">TV</a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="/label/film">Film</a>
+
+                    </li>
+
+
+                    </div>
+
+
+
+                    <div class="c-nav-list__col">
+
+
+                    <li>
+
+                        <a href="/games">Games</a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="/label/comics">Comics</a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="/label/music">Music</a>
+
+                    </li>
+
+
+                    </div>
+
+
+
+                  <li class="c-nav-list__all-link">
+                    <a href="/culture">All Culture</a>
+                  </li>
+
+              </ul>
+
+
+        </li>
+
+        <li data-nav-item-id="cars" data-nav-list-id="cars">
+
+          <a class="c-nav-list__label" href="/transportation">
+            Cars
+
+              <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-norgie-down"></use></svg>
+
+          </a>
+
+
+
+
+
+              <ul class="c-nav-list__sub-items">
+
+
+                    <div class="c-nav-list__col">
+
+
+                    <li>
+
+                        <a href="/ride-sharing">Ride-Sharing</a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="/label/cars">Cars</a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="/label/trains">Mass Transit</a>
+
+                    </li>
+
+
+                    </div>
+
+
+
+                    <div class="c-nav-list__col">
+
+
+                    <li>
+
+                        <a href="/label/planes">Aviation</a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="/label/bikes">Rideables</a>
+
+                    </li>
+
+
+                    </div>
+
+
+
+                  <li class="c-nav-list__all-link">
+                    <a href="/transportation">All Transportation</a>
+                  </li>
+
+              </ul>
+
+
+        </li>
+
+        <li data-nav-item-id="reviews" data-nav-list-id="reviews">
+
+          <a class="c-nav-list__label" href="/reviews">
+            Reviews
+
+              <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-norgie-down"></use></svg>
+
+          </a>
+
+
+
+
+
+              <ul class="c-nav-list__sub-items">
+
+
+                    <div class="c-nav-list__col">
+
+
+                    <li>
+
+                        <a href="/phone-review">Phones</a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="/laptop-review">Laptops</a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="/camera-review">Cameras</a>
+
+                    </li>
+
+
+                    </div>
+
+
+
+                    <div class="c-nav-list__col">
+
+
+                    <li>
+
+                        <a href="/tablet-review">Tablets</a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="/headphone-review">Headphones</a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="/smartwatch-review">Smartwatches</a>
+
+                    </li>
+
+
+                    </div>
+
+
+
+                    <div class="c-nav-list__col">
+
+
+                    <li>
+
+                        <a href="/vr-headset-review">VR Headsets</a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="/this-is-my-next">This is my Next</a>
+
+                    </li>
+
+
+                    </div>
+
+
+
+                  <li class="c-nav-list__all-link">
+                    <a href="/reviews">All Reviews</a>
+                  </li>
+
+              </ul>
+
+
+        </li>
+
+        <li data-nav-item-id="longform">
+
+          <a class="c-nav-list__label" href="/longform">
+            Longform
+
+          </a>
+
+
+
+        </li>
+
+        <li data-nav-item-id="video">
+
+          <a class="c-nav-list__label" href="https://goo.gl/G5RXGs">
+            Video
+
+          </a>
+
+
+
+        </li>
+
+        <li data-nav-item-id="circuit-breaker">
+
+          <a class="c-nav-list__label" href="/circuitbreaker">
+            Circuit Breaker
+
+          </a>
+
+
+
+        </li>
+
+        <li data-nav-item-id="forums">
+
+          <a class="c-nav-list__label" href="/forums">
+            Forums
+
+          </a>
+
+
+
+        </li>
+
+        <li data-nav-item-id="tl-dr">
+
+          <a class="c-nav-list__label" href="/tldr">
+            TL;DR
+
+          </a>
+
+
+
+        </li>
+
+      <button data-ui="close-nav" type="button" class="c-nav-list__close">✕</button>
+    </ul>
+
+  </div>
+</section>
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+  <div class="chorus-ad-placement__hub-zone">
+    <div class="chorus-ad-placement chorus-ad-placement__leaderboard u-centered">
+
+<div id="div-gpt-ad-desktop_leaderboard_variable" class="dfp_ad" data-cb-dfp-id="unit=desktop_leaderboard_variable" data-cb-ad-id="Desktop leaderboard variable">
+
+</div>
+
+
+<div id="div-gpt-ad-tablet_leaderboard" class="dfp_ad" data-cb-dfp-id="unit=tablet_leaderboard" data-cb-ad-id="Tablet leaderboard">
+
+</div>
+
+</div>
+
+    <div class="chorus-ad-placement chorus-ad-placement__leaderboard u-centered">
+
+<div id="div-gpt-ad-desktop_leaderboard_variable" class="dfp_ad" data-cb-dfp-id="unit=desktop_leaderboard_variable" data-cb-ad-id="Desktop leaderboard variable">
+
+</div>
+
+
+<div id="div-gpt-ad-tablet_leaderboard" class="dfp_ad" data-cb-dfp-id="unit=tablet_leaderboard" data-cb-ad-id="Tablet leaderboard">
+
+</div>
+
+</div>
+
+  </div>
+
+
+
+
+</div>
+
+  <div class="actual-content">
+
+      <!-- TOP AD -->
+      <div class="top-ad article_0">
+          <img src="images/topAd.png" alt="Banner article"/>
+      </div>
+
+      <!-- ROW 1 ORIGINAL-->
+      <div class="row row-1 starts-shown">
+          <div class="headline-cell big-headline-cell inline-block article_1 border">
+              <div class="image-big-headline row-1">
+
+              </div>
+              <div class="text-big-headline">
+                  <div class="actual-text-container">
+                      <div class="actual-text">
+                          <p class="title">Japanese toilet industry agrees to standardize complex bidet controls</p>
+                          <p class="author">BY SAM BYFORD</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="headline-cell small-headline-cell inline-block article_2 border">
+              <div class="image-small-headline">
+                  <img src="images/android.jpg" alt="Android Image"/>
+              </div>
+              <div class="text-small-headline">
+                  <p class="title">Low-cost Android One phones are reportedly coming to the US</p>
+                  <p class="author">By Dieter Bohn</p>
+              </div>
+          </div>
+      </div>
+
+      <!-- ROW 1 HIDDEN -->
+      <div class="row row-1 starts-hidden">
+          <div class="headline-cell small-headline-cell inline-block article_1 new border">
+              <div class="image-small-headline">
+                  <img src="images/asianMen.jpg" alt="Android Image"/>
+              </div>
+              <div class="text-small-headline">
+                  <p class="title">Japanese toilet industry agrees to standardize complex bidet controls</p>
+                  <p class="author">BY SAM BYFORD</p>
+              </div>
+          </div>
+          <div class="headline-cell big-headline-cell inline-block article_2 border">
+                  <div class="actual-text-container new">
+                      <div class="actual-text">
+                          <p class="title">Low-cost Android One phones are reportedly coming to the US</p>
+                          <p class="author">By Dieter Bohn</p>
+                      </div>
+                  </div>
+          </div>
+      </div>
+
+
+      <!-- ROW 2 -->
+      <div class="row">
+          <div class="headline-cell small-headline-cell inline-block article_3 border">
+              <div class="image-small-headline">
+                  <img src="images/freeChelsea.jpg" alt="Android Image"/>
+              </div>
+              <div class="text-small-headline">
+                  <p class="title">President Obama has commuted Chelsea Manning's sentence</p>
+                  <p class="author">By Russell Brandom</p>
+              </div>
+          </div>
+          <div class="headline-cell big-headline-cell inline-block article_4 border">
+              <div class="text-big-headline">
+                  <div class="actual-text-container">
+                      <div class="actual-text">
+                          <p class="title">CIA puts almost 12 million classified files online for the first time</p>
+                          <p class="author">BY Rich Mccormick</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="image-big-headline row-2">
+              </div>
+
+          </div>
+      </div>
+
+      <!-- IMAGES ROW -->
+      <div class="minor-news-row">
+          <div class="minor-news-container article_5 border">
+              <div class="minor-news-image">
+                <img src="./images/evernote.jpg" alt="Evernote"/>
+              </div>
+              <div class="minor-news-text">
+                  <p class="title">Evernote's design is much too little, much too late</p>
+                  <p class="author">By Casey Newton</p>
+              </div>
+          </div>
+          <div class="minor-news-container article_6 border">
+              <div class="minor-news-image">
+                <img src="./images/protest.png" alt="Protest"/>
+              </div>
+              <div class="minor-news-text">
+                  <p class="title">The $2,500 'paid protestor' service is likely fake</p>
+                  <p class="author">By Colin Lecher</p>
+              </div>
+          </div>
+          <div class="minor-news-container article_7 border">
+              <div class="minor-news-image">
+                <img src="./images/iceberg.png" alt="Iceberg"/>
+              </div>
+              <div class="minor-news-text">
+                  <p class="title">Ice cracks force British Antarctic Survey to move its base</p>
+                  <p class="author">By Angela Chen</p>
+              </div>
+          </div>
+      </div>
+
+      <!-- BANNER ARTICLE -->
+      <div class="banner-article article_8">
+          <img src="images/bottomArticle.png" alt="Banner article"/>
+      </div>
+ </div>
+
+
 
     <div id="article_1" class="modal fade bs-example-modal-lg article_1" tabindex="1" role="dialog" aria-labelledby="myLargeModalLabel">
         <div class="modal-dialog modal-lg our_modal" role="document">
             <div class="modal-content our_modal">
-                <div class="modal-bodyv our_modal">
-                    <p class="our_modal"> Article Number 1 </p>
+                <div class="modal-body our_modal">
+
+
+                    <div id="article" tabindex="0" role="article" style="-webkit-locale: en; border-bottom-width: 0px;">
+
+                        <!-- This node will contain a number of 'page' class divs. -->
+                        <div class="page"
+                             style="font-family: Georgia, Palatino, Times, 'Times New Roman', serif; font-size: 18px; line-height: 28px;">
+                            <div class="page-number">Page 1 of 1</div>
+                            <h1 class="title">Japanese toilet industry agrees to standardize complex bidet controls</h1>
+                            <p>The Japan Sanitary Equipment Industry Association, a consortium of companies producing
+                                plumbing products including Toto, Panasonic, and Toshiba, has <a
+                                        href="http://www.sanitary-net.com/news/news1142">agreed</a> to unify the
+                                iconography used on the often baffling control panels for Japanese toilets. The decision
+                                was made in response to foreign tourists who say they’re often unable to understand the
+                                controls, which operate features often not found on Western toilets such as bidets and
+                                warm air drying. </p>
+                            <p>The toilet manufacturers plan to implement the eight new pictogram on models released
+                                from this year onward, with a view to the system becoming an international standard. The
+                                icons in the image above mean (from left to right) raise the lid, raise the seat, large
+                                flush, small flush, rear spray, bidet, dry, and stop. </p>
+                            <p>Much of Japan is currently engaged in a rush to make itself more welcoming to tourists
+                                ahead of the 2020 Olympic Games in Tokyo, and icon design has often been at the
+                                forefront of debate. The government has <a
+                                        href="https://www.theguardian.com/world/2016/jan/20/japan-to-drop-the-swastika-from-its-tourist-maps">recommended</a>
+                                removing the Buddhist <em>manji</em> symbol from maps aimed at foreigners, for example,
+                                for fear of unintended associations with the Nazi swastika.</p>
+
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="article_2" class="modal fade bs-example-modal-lg article_1" tabindex="1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div id="article_3" class="modal fade bs-example-modal-lg article_1" tabindex="1" role="dialog" aria-labelledby="myLargeModalLabel">
         <div class="modal-dialog modal-lg our_modal" role="document">
             <div class="modal-content our_modal">
-                <div class="modal-bodyv our_modal">
-                    <p class="our_modal"> Article Number 2 </p>
+                <div class="modal-body our_modal">
+                    <div id="article" tabindex="0" role="article" style="-webkit-locale: en; border-bottom-width: 0px;">
+        <menu id="controls" type="toolbar">
+            <button id="zoom-out" onclick="makeTextSmaller();" title="Zoom out"></button>
+            <div class="separator"></div>
+            <button id="zoom-in" onclick="makeTextLarger();" title="Zoom in"></button>
+        </menu>
+        <!-- This node will contain a number of 'page' class divs. -->
+    <div class="page" style="font-family: Georgia, Palatino, Times, 'Times New Roman', serif; font-size: 18px; line-height: 28px;"><div class="page-number">Page 1 of 1</div><h1 class="title">President Obama has commuted Chelsea Manning’s sentence</h1>
+  <p>President Obama has commuted Chelsea Manning’s sentence, according to <a href="https://www.nytimes.com/2017/01/17/us/politics/obama-commutes-bulk-of-chelsea-mannings-sentence.html">a report from <em>The New York Times</em></a>. While not technically a pardon, the order reduces Manning’s sentence from 35 years to just over seven years, the majority of which Manning has already served. As a result, Manning is due to be released from federal custody in just four months, on May 17th.</p>
+<p>While serving as an intelligence analyst in Iraq, Manning leaked <a href="https://wikileaks.org/plusd/?qproject%5B%5D=cg&amp;q=#result">more than 700,000 documents</a> to WikiLeaks, including <a href="https://www.youtube.com/watch?v=5rXPrfnU3G0">video of a 2007 airstrike in Baghdad</a> that killed two <em>Reuters</em> employees. In 2013, Manning was <a href="http://www.theverge.com/2013/8/21/4642816/bradley-manning-sentenced-wikileaks-case">sentenced to 35 years in prison</a> for her role in the leak and has been held at the US Disciplinary Barracks at Fort Leavenworth for the past three years.</p>
+<p>Julian Assange, who has long been sought by US and EU authorities for extradition on Swedish rape charges, had previously <a href="https://twitter.com/wikileaks/status/819630102787059713">pledged to surrender himself</a> to US authorities if Manning was pardoned.</p>
+<div class="auxiliary" style="width: 335.875px;"><aside><q style="font-style: italic;">“Obama may well have just saved Chelsea Manning's life.”</q></aside></div>
+<p>The news was welcomed by many in Manning’s legal support team. “Obama may well have just saved Chelsea Manning's life,” said Sarah Harrison, who has defended Manning as Active Director of the Courage nonprofit. “Freeing her is clearly and unambiguously the right thing to do.”</p>
+
+<p>At the same time, Harrison did not shy away from continued criticism of President Obama. “Today's news will not make good the harm done on Obama's watch,” she continued. “Chelsea's conviction under the Espionage Act and 35-year sentence set a terrible precedent that is left entirely intact by this commutation. Who knows what Donald Trump will do with this precedent, and these powers, that Obama has left him?"</p>
+<p>Born Bradley Manning, Chelsea announced her gender transition the day after the verdict was handed down. “I am Chelsea Manning. I am a female,” she said in a statement. “Given the way that I feel, and have felt since childhood, I want to begin hormone therapy as soon as possible.” Obtaining the resulting medical treatments was extremely difficult for Manning, and was the subject of significant and sustained activism. After a lawsuit, Manning was approved for hormone therapy <a href="http://www.usatoday.com/story/news/nation/2015/02/12/chelsea-manning-hormone-therapy/23311813/">in 2015</a>. In September 2016, she <a href="http://www.theverge.com/2016/9/13/12908888/chelsea-manning-ends-hunger-strike">launched a hunger strike</a>, demanding access to gender reassignment surgery; the military complied five days later. Notably, today’s commutation means many of the resulting procedures may take place after Manning’s release.</p>
+<div class="auxiliary" style="width: 335.875px;"><aside><q style="font-style: italic;">“We must remember that clemency is an extraordinary remedy.”</q></aside></div>
+<p>The commutation was part of a larger effort that included 209 commutations and 64 pardons, issued just three days before President-elect Donald Trump is scheduled to take office. President Obama has now issued 1,385 grants of commutation over the course of his two terms, the most granted by any president.</p>
+
+<p>“We must remember that clemency is an extraordinary remedy, granted only after the President has concluded that a particular individual has demonstrated a readiness to make use of his or her second chance,” White House counsel Neil Eggleston said <a href="https://www.whitehouse.gov/blog/2017/01/17/president-obama-has-now-granted-more-commutations-any-president-nations-history">in a statement</a>. “Only Congress can achieve the broader reforms needed to ensure over the long run that our criminal justice system operates more fairly and effectively in the service of public safety.”</p>
+<p><a href="https://www.pardonsnowden.org/">A number of groups</a> have <a href="http://www.theverge.com/2016/6/27/12040196/president-obama-pardon-edward-snowden-free">called on President Obama</a> to pardon Edward Snowden, who is currently living in Russia under threat of US espionage charges. Thus far, the president has declined to do so, citing the absence of an active court hearing on Snowden’s charges. “I can't pardon somebody who hasn't gone before a court and presented themselves,” Obama <a href="http://www.theverge.com/2016/11/21/13697072/obama-snowden-pardon-nsa-trump-pompeo">told <em>Der Spiegel</em></a> in November.</p>
+<p>Speaking to the <em>Times</em> after the order, a White House spokesman affirmed the earlier statements, drawing a stark distinction between Manning and Snowden. “Chelsea Manning is somebody who went through the military criminal justice process, was exposed to due process, was found guilty, was sentenced for her crimes, and she acknowledged wrongdoing,” the spokesperson said.</p>
+<p>On Twitter, Snowden applauded the news. “In five more months, you will be free,“ he <a href="https://twitter.com/Snowden/status/821476926372118531">wrote on Twitter</a>. “Thank you for what you did for everyone, Chelsea. Stay strong a while longer!”</p>
+</div></div>
                 </div>
             </div>
         </div>
     </div>
-    </BODY>
-</HTML>
+
+    <div id="article_4" class="modal fade bs-example-modal-lg article_1" tabindex="1" role="dialog" aria-labelledby="myLargeModalLabel">
+        <div class="modal-dialog modal-lg our_modal" role="document">
+            <div class="modal-content our_modal">
+                <div class="modal-body our_modal">
+
+                    <div id="article" tabindex="0" role="article" style="-webkit-locale: en; border-bottom-width: 0px;">
+        <menu id="controls" type="toolbar">
+            <button id="zoom-out" onclick="makeTextSmaller();" title="Zoom out"></button>
+            <div class="separator"></div>
+            <button id="zoom-in" onclick="makeTextLarger();" title="Zoom in"></button>
+        </menu>
+        <!-- This node will contain a number of 'page' class divs. -->
+    <div class="page" style="font-family: Georgia, Palatino, Times, 'Times New Roman', serif; font-size: 18px; line-height: 28px;"><div class="page-number">Page 1 of 1</div><h1 class="title">CIA puts almost 12 million declassified files online for the first time</h1>
+  <p>The CIA has put <a href="https://www.cia.gov/library/readingroom/">almost 12 million pages of its records online</a>, allowing anyone with an internet connection to browse 50 years worth of declassified intelligence reports, briefings, and other once-secret documents. Included in the database are US discussions about assassinating Fidel Castro, details of Nazi war crimes, reports of <a href="https://www.cia.gov/library/readingroom/document/cia-rdp81r00560r000100010010-0">UFO sightings</a>, and a study into human telepathy dubbed "Project Star Gate."</p>
+<p>Then-president Bill Clinton ordered the CIA to declassify secret documents that were more than 25 years old and of "historical value" in 1995, but the Agency didn't make the archives searchable until 2000. Even then, the documents — which cover a period from the 1940s to the 1990s — were only accessible from four computers at the US National Archives in College Park, Maryland, and only between the hours of 9AM and 4:30PM.</p>
+<div class="auxiliary" style="width: 335.875px;"><aside><q style="font-style: italic;">The documents include references to mind control and telepathy projects</q></aside></div>
+<p>The database is known as CREST (CIA Records Search Tool), and making it available online has long been a target of journalists, academics, and researchers. Nonprofit organization MuckRock filed a Freedom of Information case against the database in 2014, but was <a href="http://www.politico.com/blogs/under-the-radar/2015/02/cia-needs-just-6-years-to-release-data-not-28-202603">told by the CIA</a> that it would take at least six years, and be delivered on 1,200 CDs for a price of $108,000. That timeframe — and cost — was drastically decreased last November, when the Agency said it expected CREST to become available to all within the next year. </p>
+<p>Not all documents from the 50-year period have been declassified, but Joseph Lambert, the CIA's director of information management, <a href="https://www.buzzfeed.com/jasonaleopold/the-cias-secret-history-is-now-online?utm_term=.kin4wBwRDp#.ydW1w5wemz">told <em>BuzzFeed</em></a><em> </em>that no documents were <em>re</em>classified prior to CREST's online appearance. Even a cursory scan of the database can pull up some lurid reading: as well as accounts of world-changing events like the Bay of Pigs invasion or the Cuban Missile Crisis, there are also internal CIA documents detailing clandestine projects like the controversial MK Ultra. </p>
+
+</div></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="WebGazer/build/webgazer.js"></script>
+    <script src="js/js_file_with_everything.js"></script>
+    <script type="text/javascript" src="./js/index.js"></script>
+
+  </body>
+</html>
