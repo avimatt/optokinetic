@@ -49,6 +49,7 @@ class EdgeCounter {
         var y = data.y;
         if (this.upThresh > y) {
             // Eye is in the upper edge
+            inEdgeRegion = true;
             this.incrementCount("up");
             this.decrementCount("down");
             this.decrementCount("left");
@@ -56,6 +57,7 @@ class EdgeCounter {
         }
         else if (this.downThresh < y) {
             // Eye is in the lower edge
+            inEdgeRegion = true;
             this.incrementCount("down");
             this.decrementCount("up");
             this.decrementCount("left");
@@ -63,6 +65,7 @@ class EdgeCounter {
         }
         else if (this.rightThresh < x) {
             // Eye is in the right edge
+            inEdgeRegion = true;
             this.incrementCount("right");
             this.decrementCount("down");
             this.decrementCount("left");
@@ -70,6 +73,7 @@ class EdgeCounter {
         }
         else if (this.leftThresh > y) {
             // Eye is in the left edge
+            inEdgeRegion = true;
             this.incrementCount("left");
             this.decrementCount("down");
             this.decrementCount("right");
@@ -77,6 +81,7 @@ class EdgeCounter {
         }
         else {
             // Eye is not on an edge
+            inEdgeRegion = false;
             this.decrementCount("left");
             this.decrementCount("down");
             this.decrementCount("right");
@@ -86,6 +91,7 @@ class EdgeCounter {
     }
 }
 
+var inEdgeRegion = false;
 var scrollFunction = function(direction) {
     var scrollAmount = 2;
     var directions = ["up", "down", "left", "right"];
@@ -136,6 +142,10 @@ class ArticleCounter {
         this.hideCallback = hideCallback;
     }
     incrementCount(article_name) {
+        if (inEdgeRegion) {
+            // Stop peaking articles when scrolling
+            return;
+        }
         if(Object.keys(this.article_dict).includes(article_name)) {
             // valid article name
 
@@ -185,7 +195,7 @@ class ArticleCounter {
             if(this.modalFlag){
                 if(!el.classList.contains("our_modal")) {
                     this.modalCounter++;
-                    console.log(this.modalCounter);
+                    //console.log(this.modalCounter);
                     if(this.modalCounter > this.counterThresh/2) {
                         this.modalCounter = 0;
                         this.modalFlag = false;
@@ -208,7 +218,7 @@ class ArticleCounter {
             }
         }
 
-        console.log(this.article_dict);
+        //console.log(this.article_dict);
     }
 }
 
@@ -264,6 +274,8 @@ webgazer.setRegression('weightedRidge') /* currently must set regression and tra
             articleCounter.modifyCounts(data);
             lastData = data;
         }
+        console.log(clock);
+        console.log(data);
     })
     .begin()
     .showPredictionPoints(true); /* shows a square every 100 milliseconds where current prediction is */
@@ -318,7 +330,7 @@ var setup = function() {
             setTimeout(checkIfReady, 100);
         }
     }
-    setTimeout(checkIfReady,100);
+    setTimeout(checkIfReady, 100);
 };
 window.onbeforeunload = function() {
     // webgazer.end(); //Uncomment if you want to save the data even if you reload the page.

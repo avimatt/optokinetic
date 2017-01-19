@@ -254,6 +254,7 @@
     <link href="./css/index.css" data-chorus-theme="chorus" rel="stylesheet" media="all">
     <link href="./css/custom-css.css" rel="stylesheet">
     <link href="https://fonts.voxmedia.com/unison/stylesheets/verge.1d37918fdeeb1febc4d68217382a1e72.css" rel="stylesheet" media="all">
+    <link href="./css/calibrate.css" rel="stylesheet">
     <script id="chorus-fonts" data-cid="site/font_loader-1484679828_1733_4154" data-cdata="{&quot;version&quot;:&quot;0b50f0674bed2b66b24a77410eb3f99c&quot;,&quot;catalog&quot;:[{&quot;slug&quot;:&quot;unison-nitti&quot;,&quot;family&quot;:&quot;nitti-grotesk&quot;,&quot;weight&quot;:&quot;400&quot;,&quot;style&quot;:&quot;normal&quot;},{&quot;slug&quot;:&quot;verge-adelle-sans&quot;,&quot;family&quot;:&quot;adelle-sans&quot;,&quot;weight&quot;:&quot;400&quot;,&quot;style&quot;:&quot;italic&quot;},{&quot;slug&quot;:&quot;verge-adelle-sans&quot;,&quot;family&quot;:&quot;adelle-sans&quot;,&quot;weight&quot;:&quot;600&quot;,&quot;style&quot;:&quot;normal&quot;},{&quot;slug&quot;:&quot;verge-heroic&quot;,&quot;family&quot;:&quot;Heroic&quot;,&quot;weight&quot;:&quot;500&quot;,&quot;style&quot;:&quot;italic&quot;},{&quot;slug&quot;:&quot;verge-heroic&quot;,&quot;family&quot;:&quot;Heroic&quot;,&quot;weight&quot;:&quot;500&quot;,&quot;style&quot;:&quot;normal&quot;},{&quot;slug&quot;:&quot;verge-heroic&quot;,&quot;family&quot;:&quot;Heroic&quot;,&quot;weight&quot;:&quot;600&quot;,&quot;style&quot;:&quot;italic&quot;},{&quot;slug&quot;:&quot;verge-heroic&quot;,&quot;family&quot;:&quot;Heroic&quot;,&quot;weight&quot;:&quot;700&quot;,&quot;style&quot;:&quot;normal&quot;},{&quot;slug&quot;:&quot;verge-pathways&quot;,&quot;family&quot;:&quot;Pathways&quot;,&quot;weight&quot;:&quot;400&quot;,&quot;style&quot;:&quot;normal&quot;}]}">
 
 
@@ -304,9 +305,48 @@
   <!--[if lte IE 9]><body class="ie9"><![endif]-->
   <!--[if gte IE 10]><body class="ie"><![endif]-->
   <body class="l-hub-page">
-
-
-
+    <!-- CALIBRATION STUFF -->
+    <div class="calibration">
+    <!-- nine divs equally spaced throughout the page -->
+    <!-- TOP ROW -->
+        <div class="cell top-left">
+        </div>
+        <div class="cell top-center">
+        </div>
+        <div class="cell top-right">
+        </div>
+        <!-- MIDDLE ROW -->
+        <div class="cell middle-left">
+        </div>
+        <div class="cell middle-center">
+        </div>
+        <div class="cell middle-right">
+        </div>
+        <!-- BOTTOM ROW -->
+        <div class="cell bottom-left">
+        </div>
+        <div class="cell bottom-center">
+        </div>
+        <div class="cell bottom-right">
+        </div>
+        <!-- INSTRUCTIONS MODAL -->
+        <div id="calibration-instructions" class="modal fade bs-example-modal-lg" tabindex="1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-body ">
+                    Let's calibrate your eye-tracking software!
+                    On this webpage there are 9 circles. Click on each circle, and follow the cursor with your eyes. 
+                    The website will appear once this has been completed. 
+                    <hr/>
+                    Click anywhere for these instructions to disappear!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END CALIBRATION STUFF -->
+    <!-- BEGIN MAIN PAGE CONTENT -->
+    <div class="main-page">
     <div class="chorus-ad-placement chorus-ad-placement__reskin">
 
 <div id="div-gpt-ad-reskin" class="dfp_ad" data-cb-dfp-id="unit=reskin" data-cb-ad-id="Reskin">
@@ -1226,7 +1266,7 @@
 
                     <span>
 
-
+                        <br>
                         <cite>Photo by Stephen Lam/Getty Images</cite>
 
                     </span>
@@ -1314,6 +1354,7 @@
     <script src="WebGazer/build/webgazer.js"></script>
     <script src="js/js_file_with_everything.js"></script>
     <script type="text/javascript" src="./js/index.js"></script>
-
+    </div>
+    <!-- END OF MAIN PAGE CONTENT -->
   </body>
 </html>

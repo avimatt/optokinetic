@@ -6853,7 +6853,7 @@ html.is-nav-list-active body {
     color: #ffffff;
     position: relative;
     width: 100%;
-    z-index: 5000000;
+    z-index: 0;
 }
 .c-global-header:before {
     background-color: #000;
