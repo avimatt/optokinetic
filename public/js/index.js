@@ -17,16 +17,6 @@ function addClassNamesToChildren() {
     }
 }
 
-function showSecond() {
-    $(".starts-shown").hide();
-    $(".starts-hidden").show();
-}
-
-function showFirst() {
-    $(".starts-hidden").hide();
-    $(".starts-shown").show();
-}
-
 function addOurModal() {
     $(".modal-body").find("*").addClass("our_modal");
 

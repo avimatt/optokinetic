@@ -87,7 +87,7 @@ class EdgeCounter {
 }
 
 var scrollFunction = function(direction) {
-    var scrollAmount = 10;
+    var scrollAmount = 2;
     var directions = ["up", "down", "left", "right"];
     var index = directions.indexOf(direction);
     if (index >= 0) {
@@ -111,8 +111,18 @@ var scrollFunction = function(direction) {
 }
 
 
+function showSecond() {
+    $(".starts-shown").hide();
+    $(".starts-hidden").show();
+}
+
+function showFirst() {
+    $(".starts-hidden").hide();
+    $(".starts-shown").show();
+}
+
 class ArticleCounter {
-    constructor(article_list, counterThresh, threshCallback, hideCallback) {
+    constructor(article_list, enlargeThresh, counterThresh, threshCallback, hideCallback) {
         this.article_dict = {};
         for(var i = 0; i < article_list.length; ++i) {
             this.article_dict[article_list[i]] = 0;
@@ -120,6 +130,7 @@ class ArticleCounter {
         this.modalFlag = false;
         this.modalCounter = 0;
         this.modalName = "";
+        this.enlargeThresh = enlargeThresh;
         this.counterThresh = counterThresh;
         this.threshCallback = threshCallback;
         this.hideCallback = hideCallback;
@@ -131,9 +142,16 @@ class ArticleCounter {
             this.article_dict[article_name]++;
 
             // Now check if we hit threshold
+            if(this.article_dict[article_name] >= this.enlargeThresh && article_name == "article_2") {
+                showSecond();
+            }
+
             if (this.article_dict[article_name] >= this.counterThresh) {
                 // Threshold hit, calling callback function
                 // console.log("Reached threshold for " + article_name);
+                if(article_name == "article_2") {
+                    showFirst();
+                }
                 this.article_dict[article_name] = 0;
                 this.modalFlag = true;
                 this.modalName = article_name;
@@ -209,27 +227,19 @@ var weightedAverage = function(newPred, oldPred) {
     var newPredWeightX = 1 - oldPredWeightX;
     var oldPredWeightY = Math.sqrt(Math.abs(oldPred.y - newPred.y) / window.innerHeight);
     var newPredWeightY = 1 - oldPredWeightY;
-    // console.log("oldPred: ");
-    // console.log(oldPred);
-    // console.log("oldPred weights: (" + oldPredWeightX + ", " + oldPredWeightY + ")");
-    // console.log("newPred:");
-    // console.log(newPred);
-    // console.log("newPred weights: (" + newPredWeightX + ", " + newPredWeightY + ")");
     newPred.x = Math.round((newPredWeightX * newPred.x) + (oldPredWeightX * oldPred.x));
     newPred.y = Math.round((newPredWeightY * newPred.y) + (oldPredWeightY * oldPred.y));
 }
 
-var counterThresh = 110;
-// does this make a difference
 var articles = [];
-var NUM_ARTICLES = 9;
-for (var i = 0; i < NUM_ARTICLES; i++)
-{
-    articles.push( "article_" + i );
+NUM_ARTICLES = 9;
+for(var i = 0; i < NUM_ARTICLES; ++i){
+    articles.push("article_" + i);
 }
 
-var articleCounter = new ArticleCounter(articles, counterThresh, modalFunction, hideModal)
-
+var counterThresh = 110;
+var enlargeThresh = 60;
+var articleCounter = new ArticleCounter(articles, enlargeThresh, counterThresh, modalFunction, hideModal);
 var lastData = null;
 var edgeDistanceThresh = 60;
 var edgeCounterThresh = 15;
